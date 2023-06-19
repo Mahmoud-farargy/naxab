@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47" height="47" viewBox="0 0 47 47">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_371" data-name="Rectangle 371" width="47" height="47" transform="translate(0 0)" fill="#ae1d1d"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <circle id="Ellipse_92" data-name="Ellipse 92" cx="23.5" cy="23.5" r="23.5" transform="translate(0 -0.001)" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffd676"/>
+      <stop offset="0.25" stop-color="#f2a454"/>
+      <stop offset="0.38" stop-color="#f05c3c"/>
+      <stop offset="0.7" stop-color="#c22f86"/>
+      <stop offset="0.96" stop-color="#6666ad"/>
+      <stop offset="0.99" stop-color="#5c6cb2"/>
+    </radialGradient>
+  </defs>
+  <g id="insta" clip-path="url(#clip-path)">
+    <g id="instagram" transform="translate(0 0)">
+      <g id="Group_227" data-name="Group 227" clip-path="url(#clip-path-2)">
+        <ellipse id="Ellipse_91" data-name="Ellipse 91" cx="51.247" cy="51.247" rx="51.247" ry="51.247" transform="translate(-40.998 -6.309)" fill="url(#radial-gradient)"/>
+      </g>
+      <ellipse id="Ellipse_100" data-name="Ellipse 100" cx="1.864" cy="1.864" rx="1.864" ry="1.864" transform="translate(28.698 14.935)" fill="#fff"/>
+      <path id="Path_2779" data-name="Path 2779" d="M13.6,7.639A5.963,5.963,0,1,0,19.566,13.6,5.963,5.963,0,0,0,13.6,7.639Zm0,8.945A2.982,2.982,0,1,1,16.584,13.6,2.982,2.982,0,0,1,13.6,16.584Z" transform="translate(10.251 9.905)" fill="#fff"/>
+      <rect id="Rectangle_372" data-name="Rectangle 372" width="23" height="23" rx="4" transform="translate(12 11.999)" fill="none" stroke="#fff" stroke-width="4"/>
+    </g>
+  </g>
+</svg>

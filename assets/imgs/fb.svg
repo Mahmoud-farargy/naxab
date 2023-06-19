@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="47" viewBox="0 0 48 47">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_371" data-name="Rectangle 371" width="48" height="47" transform="translate(-0.201 0)" fill="#ae1d1d"/>
+    </clipPath>
+  </defs>
+  <g id="fb" transform="translate(0.201)" clip-path="url(#clip-path)">
+    <g id="facebook-logo-2019" transform="translate(0.331 -0.345)">
+      <path id="Path_2774" data-name="Path 2774" d="M47.706,23.853a23.853,23.853,0,1,0-27.58,23.563V30.748H14.07v-6.9h6.056V18.6c0-5.978,3.561-9.28,9.01-9.28a36.681,36.681,0,0,1,5.34.466v5.87H31.467c-2.963,0-3.887,1.839-3.887,3.725v4.474H34.2l-1.058,6.9H27.58V47.416A23.859,23.859,0,0,0,47.706,23.853Z" fill="#1877f2"/>
+      <path id="Path_2775" data-name="Path 2775" d="M36.764,33.149l1.058-6.9H31.206V21.78c0-1.886.924-3.725,3.887-3.725H38.1v-5.87a36.681,36.681,0,0,0-5.34-.466c-5.448,0-9.01,3.3-9.01,9.28v5.255H17.7v6.9h6.056V49.818a24.1,24.1,0,0,0,7.454,0V33.149Z" transform="translate(-3.626 -2.401)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
