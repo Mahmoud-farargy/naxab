@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import texts from '@/fixtures/texts.json';
+import AOS from 'aos'
 import {
   Hero,
   Page,
@@ -72,6 +74,11 @@ export default {
       global
     };
   },
+  data(){
+    return {
+      texts
+    }
+  },
   components: {
     Hero,
     Page,
@@ -81,6 +88,11 @@ export default {
     TradeMarks,
     CallToAction,
     ContactUs
+  },
+  mounted(){
+    this.$nextTick(() => {
+      AOS.init();
+    })
   }
 };
 </script>

@@ -46,18 +46,20 @@
             <button  @click="() => changeMenuState()" aria-label="toggle menu" aria-labelledby="toggle menu">
               <svg :class="`mobile-menu-button flex ${isMobileMenuOpen ? 'active' : ''}`" width="36" height="36" viewBox="0 0 40 26" xmlns="http://www.w3.org/2000/svg">
                     <rect class="mobile-menu-button-top" width="20" height="4" rx="3" ry="3" />
-                    <rect class="mobile-menu-button-middle" width="16" height="4" y="12" rx="3" ry="3" />
-                    <rect class="mobile-menu-button-bottom" width="36" height="4" y="23" rx="3" ry="3" />
+                    <rect class="mobile-menu-button-middle" width="16" height="4" y="13" rx="3" ry="3" />
+                    <rect class="mobile-menu-button-bottom" width="36" height="4" y="25" rx="3" ry="3" />
               </svg>
           </button>
         </span>
       </div>
       <!-- menu -->
       <div v-if="isMobileMenuOpen" @click="() => changeMenuState(false)" class="overlay bg-[#000]/40 fade-effect top-[var(--min-height-header)] fixed md:hidden h-[100vh] w-[100vw] z-[5]"/>
+      <transition name="mobile-slider">
+        <div v-if="isMobileMenuOpen" class="fixed h-screen w-[80%] left-0 top-[var(--min-height-header)] pb-4 pt-5 px-5 bg-[#343434] z-[10]">
+              <Nav :activeLink="global.activeLinkName" :isMobile="true" :closeMobileBar="() => changeMenuState(false)" :routesNames="routesNames"/> 
+        </div> 
+      </transition>
 
-      <div v-if="isMobileMenuOpen" class="fixed h-screen w-[80%] left-0 top-[var(--min-height-header)] pb-4 pt-5 px-5 bg-[#343434] z-[10]">
-          <Nav :activeLink="global.activeLinkName" :isMobile="true" :closeMobileBar="() => changeMenuState(false)" :routesNames="routesNames"/> 
-      </div>
     </div>
   </header>
 </template>
@@ -72,7 +74,7 @@ export default {
         return {
             routesNames,
             LogoImg,
-            isMobileMenuOpen: true
+            isMobileMenuOpen: false
         };
     },
     setup() {
@@ -84,7 +86,10 @@ export default {
     components: { Nav },
     watch: {
       isMobileMenuOpen(val){
-        if(typeof val === 'boolean' && val){
+        if(typeof val !== 'boolean'){
+          return;
+        }
+        if(val){
           document.body.classList.add("navbar__open");
         }else{
           document.body.classList.remove("navbar__open");
@@ -93,7 +98,7 @@ export default {
     },
     methods: {
       changeMenuState(newState){
-        this.isMobileMenuOpen = typeof newState === "boolean" ? newState : ! this.isMobileMenuOpen;
+        this.isMobileMenuOpen = typeof newState === "boolean" ? newState : !this.isMobileMenuOpen;
       }
     }
 };

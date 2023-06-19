@@ -28,7 +28,7 @@
         <div
           class="text-white text-[17px] sm:text-[19px] md:text-[21px] lg:text-[20px] xl:text-[21px] 3xl:text-[23px]"
         >
-          <h2 class="font-bold mt-10 md:mt-12">التطبيق الأول</h2>
+          <h2 class="font-bold mt-10 md:mt-12 animate__animated animate__bounce animate__delay-0.8s">التطبيق الأول</h2>
           <!-- text for customers -->
           <p v-if="global.currentTab === 'customers'" class="font-normal mt-1">
             الذي يمكنك من الاستفادة من العروض

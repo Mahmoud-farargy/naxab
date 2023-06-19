@@ -16,7 +16,7 @@
           v-if="elementType === 'input'"
           :required="isRequired"
           :type="inputType"
-          :class="`form__input w-full bg-[#3D3D3D] border-[2px] border-transparent hover:border-[#92278F]/40 text-white text-[16px] lg:text-[17px] 3xl:[19px] rounded-lg block py-2.5 px-3.5 lg:py-3 lg:px-4 ${isSubmitted && validationObj.$error ? 'is-invalid': ''} ${disabled ? 'disabled' : ''}`.trim()"
+          :class="`form__input w-full bg-[#3D3D3D] border-[2px] border-transparent hover:border-[#92278F]/40 text-white text-[16px] lg:text-[17px] 3xl:[19px] rounded-lg block py-2.5 px-3.5 lg:py-3 lg:px-4 ${isInvalid ? 'is-invalid': ''} ${disabled ? 'disabled' : ''}`.trim()"
         />
         <textarea
           :placeholder="placeholder"
@@ -29,17 +29,16 @@
           v-if="elementType === 'textarea'"
           :required="isRequired"
           :type="inputType"
-          :class="`form__input w-full min-h-[136px] resize-none bg-[#3D3D3D] border-[2px] border-transparent hover:border-[#92278F]/40 text-white text-[16px] lg:text-[17px] 3xl:[19px] rounded-lg block py-2.5 px-3.5 lg:py-3 lg:px-4 ${isSubmitted && validationObj.$error ? 'is-invalid': ''} ${disabled ? 'disabled' : ''}`.trim()"
+          :class="`form__input w-full min-h-[136px] resize-none bg-[#3D3D3D] border-[2px] border-transparent hover:border-[#92278F]/40 text-white text-[16px] lg:text-[17px] 3xl:[19px] rounded-lg block py-2.5 px-3.5 lg:py-3 lg:px-4 ${isInvalid ? 'is-invalid': ''} ${disabled ? 'disabled' : ''}`.trim()"
         />
       </div>
     </div>
     <div
-      v-if="isSubmitted && validationObj && validationObj.$error"
-      class="p-4 mb-4 flex flex-column text-sm mt-7 text-red-800 rounded-lg bg-red-50"
+      v-if="isInvalid"
+      class="py-2.5 px-3 mb-4 flex flex-column text-sm mt-3 text-red-800 rounded-lg bg-red-50"
       role="alert"
     >
-      <span class="text-danger" v-if="!validationObj.required">{{emptyMsg}}</span>
-      <span class="text-danger" v-if="!isValid">{{invalidMsg}}</span>
+      {{invalidMsg}}
     </div>
   </div>
 </template>
@@ -69,10 +68,6 @@ export default {
       required: true,
       default: ""
     },
-    emptyMsg: {
-      type: String,
-      required: false
-    },
     invalidMsg: {
       type: String,
       required: false
@@ -82,14 +77,10 @@ export default {
       required: false,
       default: ""
     },
-    isSubmitted: {
+    isInvalid: {
       type: Boolean,
-      required: false,
+      required: true,
       default: false
-    },
-    validationObj: {
-      type: Object,
-      required: true
     },
     label: {
       type: String,
@@ -113,7 +104,6 @@ export default {
   }
 };
 </script>
-  
   <style lang="scss" scoped>
 
 #customInput {

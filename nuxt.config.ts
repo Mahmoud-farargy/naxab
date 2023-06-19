@@ -3,7 +3,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
     '~/assets/css/main.css',
-    '~/assets/css/fonts.css'
+    '~/assets/css/fonts.css',
+    'aos/dist/aos.css',
+    'animate.css'
   ],
   modules: [
     '@nuxtjs/tailwindcss',

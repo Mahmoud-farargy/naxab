@@ -11,7 +11,7 @@
         @apply text-secondary ease-linear duration-150;
     }
     .nav-item-button {
-        @apply px-2 py-1.5 md:rounded-[7px] font-normal text-xl text-gray-400 whitespace-nowrap hover:bg-slate-200 ease-linear duration-150 md:text-[#000000] md:text-[15.1px] lg:text-[16.1px] 3xl:text-[18px] cursor-pointer;
+        @apply md:px-2 md:py-1.5 md:rounded-[7px] font-normal text-xl text-gray-400 whitespace-nowrap hover:bg-slate-200 ease-linear duration-150 md:text-[#000000] md:text-[15.1px] lg:text-[16.1px] 3xl:text-[18px] cursor-pointer;
     }
     .site-container {
         @apply px-7 sm:px-8 md:px-10 lg:px-[100px] xl:px-[150px] 2xl:px-[230px] 3xl:px-[300px] mx-auto;

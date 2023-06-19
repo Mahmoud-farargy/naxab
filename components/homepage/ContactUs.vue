@@ -18,7 +18,7 @@
                   </div> 
               </div>
               <!-- contact us form -->
-              <form class="px-4">
+              <form class="px-4" @submit.prevent="() => onFormSubmission()">
                 <!-- name input -->
                 <FormInput                    
                         elementType="input"
@@ -27,46 +27,58 @@
                         v-model="formState.name"
                         :isSubmitted="isSubmitted"
                         :disabled="isLoading"
-                        :validationObj="v$.formState && v$.formState.name"
-                        :isRequired="true"
+                        :isInvalid="!isLoading && isSubmitted && v$.formState.name.$invalid"
+                        :isRequired="false"
                         placeholder="أدخل اسمك"
                         invalidMsg="هذه الخانة مطلوبة" />
                 <!-- phone input -->
                 <FormInput                    
                         elementType="input"
-                        inputType="text"
+                        inputType="tel"
                         label="رقم الهاتف"
                         v-model="formState.phone"
                         :isSubmitted="isSubmitted"
                         :disabled="isLoading"
-                        :validationObj="v$.formState && v$.formState.phone"
-                        :isRequired="true"
+                        :isInvalid="!isLoading && isSubmitted && v$.formState.phone.$invalid"
+                        :isRequired="false"
                         placeholder="201003211503"
-                        invalidMsg="هذه الخانة مطلوبة" />
+                        invalidMsg="من فضلك ادخل رقم هاتف صحيحا بارقام انجليزية" />
               <!-- message input -->
               <FormInput                    
                         elementType="textarea"
-                        inputType="text"
+                        inputType=""
                         label="الرسالة"
                         v-model="formState.message"
                         :isSubmitted="isSubmitted"
                         :disabled="isLoading"
-                        :validationObj="v$.formState && v$.formState.message"
-                        :isRequired="true"
+                        :isInvalid="!isLoading && isSubmitted && v$.formState.message.$invalid"
+                        :isRequired="false"
                         placeholder="اكتب رسالتك"
-                        invalidMsg="هذه الخانة مطلوبة" />
+                        invalidMsg="هذه الخانة مطلوبة ويجب الا تقل عن ٥ احرف" />
+                <!-- backend error -->
+                <div
+                  v-show="errorReceived && !successMessage"
+                  class="alert alert-danger text-red-800 w-full py-2 px-4 mb-2 mt-4 text-center"
+                  role="alert"
+                >{{ errorReceived }}</div>
               <input
                 type="submit"
-                value="إرسال"
-                class="w-full py-3 px-4 font-bold cursor-pointer rounded-[10px] text-[16px] lg:text-[17px] 3xl:[19px] text-secondary submit__button"
+                :value="`${isLoading ? 'جاري التنفيذ...' : 'إرسال'}`"
+                :class="`${isLoading ? 'disabled' : ''} w-full py-3 px-4 active:brightness-125 font-bold cursor-pointer rounded-[10px] text-[16px] lg:text-[17px] 3xl:[19px] text-secondary submit__button`"
               />
+              <!-- request succeeded -->
+                <div
+                  v-show="!errorReceived && successMessage"
+                  class="alert alert-success text-green-500 w-full py-3 px-4 mb-2 mt-6 text-center"
+                  role="alert"
+                >{{ successMessage }}</div>
               </form>
           </div>
 
           <!-- getting in touch -->
           <div class="bg-[#272727] flex flex-col items-center md:bg-transparent pt-8 pb-9 md:pt-0 md:pb-0 basis-full w-full md:basis-[45%] sm:w-auto">
             <!-- logo -->
-            <div class="mb-8 md:mb-10 lg:mb-16">
+            <div class="mb-8 md:mb-10 lg:mb-16" data-aos-duration="300" data-aos-delay="250" data-aos-once="true" data-aos="zoom-in-up">
               <img :draggable="false" :src="logoImg" class="object-contain w-[96px] sm:w-[102px] md:w-[120px] lg:w-[123px] 3xl:w-[138px]" alt=""/>
             </div>
               <!-- app store links on mobile view -->
@@ -127,7 +139,7 @@ import { useVuelidate } from '@vuelidate/core';
 import SectionTitle from './SectionTitle.vue';
 import texts from '@/fixtures/texts.json';
 import FormInput from '../Generic/FormInput.vue';
-import { required } from '@vuelidate/validators';
+import { required, minLength } from '@vuelidate/validators';
 import logoImg from '@/assets/imgs/logo-dark.svg';
 import twitterImg from '@/assets/imgs/twitter.svg';
 import facebookImg from '@/assets/imgs/fb.svg';
@@ -135,8 +147,9 @@ import snapchatImg from '@/assets/imgs/snapchat.svg';
 import instagramImg from '@/assets/imgs/insta.svg';
 import googleStoreImg from '@/assets/imgs/store_dark.svg';
 import appleStoreImg from '@/assets/imgs/app_store_dark.svg';
+import axios from "axios";
 
-
+const number = (value) => /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/.test(value) || /^(?:\d{2}-\d{3}-\d{3}-\d{3}|\d{11})$/.test(value); 
 export default {
   setup(){
       return {
@@ -155,6 +168,8 @@ export default {
       texts,
       isSubmitted: false,
       isLoading: false,
+      errorReceived: false,
+      successMessage: false,
       formState: {
         name:"",
         phone: "",
@@ -166,14 +181,57 @@ export default {
     return {
       formState: {
         name: { required },
-        phone: { required },
-        message: { required }
+        phone: { required, number },
+        message: { required, minLength: minLength(5) }
       }
     }
   },
   components: {
       SectionTitle,
       FormInput
+  },
+  methods: {
+    onFormSubmission(){
+      this.isSubmitted = true;
+      this.errorReceived = "";
+      this.v$.formState.$touch();
+      if (this.v$.formState.$invalid) {
+        return;
+      } else {
+        const formData = new FormData();
+        Object.entries(this.formState || {})?.forEach(([Key, value]) => {
+          formData.append(Key, value);
+        });
+        this.isLoading = true;
+        axios({
+          url: texts.contact_us_request_url,
+          method: 'POST',
+          data: formData,
+          headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+          },
+        }).then(res => {
+            this.isSubmitted = false;
+            this.isLoading = false;
+            if (res?.status) {
+              this.successMessage = res?.message || "تم استقبال رسالتكم بنجاح. شكرا لتواصلكم معنا";
+              this.errorReceived = "";
+              this.formState.name = "";
+              this.formState.phone = "";
+              this.formState.message = "";
+            } else {
+              this.successMessage = "";
+              this.errorReceived = res.message;
+            }
+          })
+          .catch(err => {
+            this.errorReceived = err.message || 'حدث خطأ ما اثناء ارسال الرسالة. من فضلك عاود المحاولة لاحقا.';
+            this.successMessage = "";
+            this.isLoading = false;
+          });
+      }
+    }
   }
 }
 </script>
