@@ -28,49 +28,47 @@
         <div
           class="text-white text-[17px] sm:text-[19px] md:text-[21px] lg:text-[20px] xl:text-[21px] 3xl:text-[23px]"
         >
-          <h2 class="font-bold mt-10 md:mt-12 animate__animated animate__bounce animate__delay-0.8s">التطبيق الأول</h2>
-          <!-- text for customers -->
-          <div v-if="global.currentTab === 'customers'">
-              <p class="font-normal mt-1">
-                الذي يمكنك من الاستفادة من العروض
-                <br />والخصومات المقدمة من المتاجر والعلامات التجارية
-              </p>         
-              <p
-                class="text-secondary mt-6"
-              >وتجميع النقاط .. وكسب المكافئات</p>
-              <!-- customers' container-->
-              <div
-                class="flex items-center justify-center gap-7 sm:gap-10 lg:gap-16 w-full flex-nowrap mt-3"
-              >
-                <img
-                  :draggable="false"
-                  :src="coinsImg"
-                  class="object-contain w-[65px] md:w-[79px] lg:w-[69px] 3xl:w-[73px] h-auto"
-                  width="69"
-                  alt
-                />
-                <img
-                  :draggable="false"
-                  :src="giftImg"
-                  class="object-contain w-[80px] md:w-[85px] lg:w-[88px] 3xl:w-[92px] h-auto"
-                  width="88"
-                  alt
-                />
+          <h2 class="font-bold mt-10 md:mt-12 mb-2.5 animate__animated animate__bounce animate__delay-0.8s">التطبيق الأول</h2>
+        
+          <Transition name="tab-content" mode="out-in"> 
+            <!-- text for customers -->
+            <div v-if="global.currentTab === 'customers'">
+                  <p v-html="texts.customers.intro_section.text1" class="font-normal mt-1"/>         
+                  <p v-html="texts.customers.intro_section.text2" class="text-secondary mt-6" />
+                  <!-- customers' container-->
+                  <div
+                    class="flex items-center justify-center gap-7 sm:gap-10 lg:gap-16 w-full flex-nowrap mt-3"
+                  >
+                    <img
+                      :draggable="false"
+                      :src="coinsImg"
+                      class="object-contain w-[65px] md:w-[79px] lg:w-[69px] 3xl:w-[73px] h-auto"
+                      width="69"
+                      alt
+                    />
+                    <img
+                      :draggable="false"
+                      :src="giftImg"
+                      class="object-contain w-[80px] md:w-[85px] lg:w-[88px] 3xl:w-[92px] h-auto"
+                      width="88"
+                      alt
+                    />
+                  </div>
               </div>
-          </div>
-          <!-- text for sellers -->
-          <div v-if="global.currentTab === 'sellers'" >
-              <p class="font-normal md:font-bold">التطبيق الأول الذي يمكن عـــــمــــلائـــــك من الاسـتـفــــادة من العروض والـخــصــــومـــات التي تقدمها لهم وتحويلها إلى نـقـــــاط ومكافئات تمنحها لهم لتعزيز ولائهم لعلامتك التجارية</p>
-              <p
-                class="text-secondary mt-6"
-              >نكسب .. حافظ على عملائك الحاليين</p>
-              <!-- resellers' container-->
-              <div>
-                <p>واكسب عملاء جدد</p>
-              </div>
-          </div>
 
-          <!-- text for customers -->
+          <!-- text for sellers -->
+              <div v-else >
+                  <p v-html="texts.sellers.intro_section.text1" class="font-normal md:font-bold"/>
+                  <p
+                    v-html="texts.sellers.intro_section.text2"
+                    class="text-secondary mt-6"
+                  />
+                  <!-- resellers' container-->
+                  <div>
+                    <p v-html="texts.sellers.intro_section.text3"/>
+                  </div>
+              </div>
+          </Transition>
 
           <div class="app__links flex items-center justify-center mt-14 flex-wrap gap-2 md:gap-4">
             <a href="#" target="_blank">

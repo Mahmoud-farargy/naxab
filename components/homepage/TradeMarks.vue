@@ -47,7 +47,7 @@
             </swiper-slide>
         </swiper>     
     </div>
-    <div v-if="global.currentTab === 'sellers'" >
+    <div v-if="global.currentTab === 'sellers'" class="inner-container">
         sellers will be here
     </div>
 

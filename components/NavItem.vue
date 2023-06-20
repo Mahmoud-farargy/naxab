@@ -28,9 +28,6 @@ export default {
     path: {
       type: String,
       required: true
-    },
-    test: {
-      type: Object
     }
   }
 };
