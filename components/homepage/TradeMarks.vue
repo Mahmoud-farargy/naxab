@@ -1,13 +1,12 @@
 <template>
-  <section id="trade_marks" class="section__box">
+  <section :id="global.currentTab === 'customers' ? texts.customers.navLinks.link5.sectionHash : texts.sellers.navLinks.link5.sectionHash" class="section__box">
     <!-- title -->
-    <SectionTitle :text="texts.customers.head_titles.fourth.text" :highlighted="texts.customers.head_titles.fourth.highlight"/>
+    <SectionTitle v-if="global.currentTab === 'customers'" :text="texts.customers.head_titles.fourth.text" :highlighted="texts.customers.head_titles.fourth.highlight"/>
+    <SectionTitle v-else-if="global.currentTab === 'sellers'" :text="texts.sellers.head_titles.fourth.text" :highlighted="texts.sellers.head_titles.fourth.highlight"/>
 
-    <!-- trade marks list -->
-    <!-- <ul class="inner-container flex flex-wrap justify-center px-5 md:px-5 lg:px-0 gap-x-10 gap-y-16 sm:gap-6 list-none mt-5 md:mt-6 lg:mt-8 xl:mt-11">
-        <TradeMarksItem v-for="(item, index) in texts.customers.trade_marks" :key="index" :item="item"/>
-    </ul> -->
-    <div class="inner-container px-5 md:px-5 mt-5 md:mt-6 lg:mt-8 xl:mt-11">
+    <!-- For Resellers -  trade marks list -->
+    
+    <div v-if="global.currentTab === 'customers'" class="inner-container px-5 md:px-5 mt-5 md:mt-6 lg:mt-8 xl:mt-11">
         <swiper
             :space-between="20"
             :speed="800"
@@ -48,6 +47,9 @@
             </swiper-slide>
         </swiper>     
     </div>
+    <div v-if="global.currentTab === 'sellers'" >
+        sellers will be here
+    </div>
 
   </section>
 </template>
@@ -58,13 +60,15 @@ import SectionTitle from './SectionTitle.vue';
 import TradeMarksItem from "./TradeMarksItem.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, A11y, Virtual } from "swiper";
+import { useGlobalStore } from "@/store/Modules/global";
 
 export default {
     setup(){
         return {
             Autoplay,
             A11y,
-            Virtual
+            Virtual,
+            global: useGlobalStore()
         }
     },
     data() {

@@ -3,8 +3,8 @@
     <div class="inner-container grid grid-cols-1 py-1 sm:py-2 place-items-center sm:place-items-start gap-y-10 sm:text-inherit sm:grid-cols-2">       
         <!-- statement -->
         <div class="text-[21px] sm:[25px] md:text-[27px] text-center md:text-right lg:text-[29px]" data-aos-duration="1200" data-aos-delay="250" data-aos-once="true" data-aos="fade-left">
-            <p class="text-[#000000] font-normal mb-2">{{ texts.customers.call_to_action.text }}</p>
-            <strong class="font-bold text-primaryLighter">{{ texts.customers.call_to_action.highlight }}</strong>
+            <p class="text-[#000000] font-normal mb-2">{{ texts.call_to_action.text }}</p>
+            <strong class="font-bold text-primaryLighter">{{ texts.call_to_action.highlight }}</strong>
         </div>
         <!-- mobile graphic -->
         <div class="relative mobile__graphic" data-aos-duration="1200" data-aos-delay="250" data-aos-once="true" data-aos="zoom-in">

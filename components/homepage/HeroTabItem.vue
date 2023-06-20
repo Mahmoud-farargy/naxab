@@ -1,5 +1,5 @@
 <template>
-    <li ref="LiElement" @click="setTabInStore(tabId)" :class="`hero-tab-item ${isActive ? 'active-tab' : ''}`">{{ tabName }}</li>
+    <li ref="LiElement" @click="updateTab(tabId)" :class="`hero-tab-item ${isActive ? 'active-tab' : ''}`">{{ tabName }}</li>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
             required: true,
             default: ""
         },
-        setTabInStore:{
+        updateTab:{
             type: Function,
             required: true
         }

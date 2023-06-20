@@ -12,3 +12,4 @@ export { default as ContactUs} from "./homepage/ContactUs.vue";
 export { default as Page} from "./Generic/Page.vue";
 export { default as FormInput} from "./Generic/FormInput.vue";
 export { default as Nav} from "./Nav.vue";
+export { default as NavItem} from "./NavItem.vue";

@@ -71,7 +71,8 @@ export default {
       window.removeEventListener("scroll", getIDInView);
     });
     return {
-      global
+      global,
+      route
     };
   },
   data(){
@@ -88,6 +89,18 @@ export default {
     TradeMarks,
     CallToAction,
     ContactUs
+  },
+  watch: {
+    "route.query.tab":{
+      immediate: true,
+      handler(val){
+        if(val && (val === 'customers' || val === 'sellers')){
+            // sets current tab in the Pinia store
+            this.global?.changeCurrentTab(val);
+        }
+
+      }
+    },
   },
   mounted(){
     this.$nextTick(() => {

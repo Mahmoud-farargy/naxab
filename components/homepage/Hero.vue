@@ -1,5 +1,5 @@
 <template>
-  <section id="index" class="pb-6 flex mt-[var(--min-height-header)] flex-col pt-7 md:pt-8 lg:pt-9">
+  <section :id="global.currentTab === 'customers' ? texts.customers.navLinks.link1.sectionHash : texts.sellers.navLinks.link1.sectionHash" class="pb-6 hero flex mt-[var(--min-height-header)] flex-col pt-7 md:pt-8 lg:pt-9">
     <div
       class="hero__inner flex flex-col items-center text-center justify-center mx-auto w-full h-full"
     >
@@ -13,13 +13,13 @@
             <HeroTabItem
               tabId="customers"
               :isActive="global.currentTab === 'customers'"
-              :setTabInStore="setTabInStore"
+              :updateTab="updateTab"
               :tabName="texts.tabs_names.first_tab"
             />
             <HeroTabItem
               tabId="sellers"
               :isActive="global.currentTab === 'sellers'"
-              :setTabInStore="setTabInStore"
+              :updateTab="updateTab"
               :tabName="texts.tabs_names.second_tab"
             />
           </ul>
@@ -30,49 +30,47 @@
         >
           <h2 class="font-bold mt-10 md:mt-12 animate__animated animate__bounce animate__delay-0.8s">التطبيق الأول</h2>
           <!-- text for customers -->
-          <p v-if="global.currentTab === 'customers'" class="font-normal mt-1">
-            الذي يمكنك من الاستفادة من العروض
-            <br />والخصومات المقدمة من المتاجر والعلامات التجارية
-          </p>
-          <!-- text for resellers -->
-          <p
-            v-else-if="global.currentTab === 'sellers'"
-          >التطبيق الأول الذي يمكن عـــــمــــلائـــــك من الاسـتـفــــادة من العروض والـخــصــــومـــات التي تقدمها لهم وتحويلها إلى نـقـــــاط ومكافئات تمنحها لهم لتعزيز ولائهم لعلامتك التجارية</p>
-          <!-- text for customers -->
-          <p
-            v-if="global.currentTab === 'customers'"
-            class="text-secondary mt-6"
-          >وتجميع النقاط .. وكسب المكافئات</p>
-          <!-- text for resellers -->
-          <p
-            v-else-if="global.currentTab === 'sellers'"
-            class="text-secondary mt-6"
-          >نكسب .. حافظ على عملائك الحاليين</p>
+          <div v-if="global.currentTab === 'customers'">
+              <p class="font-normal mt-1">
+                الذي يمكنك من الاستفادة من العروض
+                <br />والخصومات المقدمة من المتاجر والعلامات التجارية
+              </p>         
+              <p
+                class="text-secondary mt-6"
+              >وتجميع النقاط .. وكسب المكافئات</p>
+              <!-- customers' container-->
+              <div
+                class="flex items-center justify-center gap-7 sm:gap-10 lg:gap-16 w-full flex-nowrap mt-3"
+              >
+                <img
+                  :draggable="false"
+                  :src="coinsImg"
+                  class="object-contain w-[65px] md:w-[79px] lg:w-[69px] 3xl:w-[73px] h-auto"
+                  width="69"
+                  alt
+                />
+                <img
+                  :draggable="false"
+                  :src="giftImg"
+                  class="object-contain w-[80px] md:w-[85px] lg:w-[88px] 3xl:w-[92px] h-auto"
+                  width="88"
+                  alt
+                />
+              </div>
+          </div>
+          <!-- text for sellers -->
+          <div v-if="global.currentTab === 'sellers'" >
+              <p class="font-normal md:font-bold">التطبيق الأول الذي يمكن عـــــمــــلائـــــك من الاسـتـفــــادة من العروض والـخــصــــومـــات التي تقدمها لهم وتحويلها إلى نـقـــــاط ومكافئات تمنحها لهم لتعزيز ولائهم لعلامتك التجارية</p>
+              <p
+                class="text-secondary mt-6"
+              >نكسب .. حافظ على عملائك الحاليين</p>
+              <!-- resellers' container-->
+              <div>
+                <p>واكسب عملاء جدد</p>
+              </div>
+          </div>
 
-          <!-- container for customers -->
-          <div
-            v-if="global.currentTab === 'customers'"
-            class="flex items-center justify-center gap-7 sm:gap-10 lg:gap-16 w-full flex-nowrap mt-3"
-          >
-            <img
-              :draggable="false"
-              :src="coinsImg"
-              class="object-contain w-[65px] md:w-[79px] lg:w-[69px] 3xl:w-[73px] h-auto"
-              width="69"
-              alt
-            />
-            <img
-              :draggable="false"
-              :src="giftImg"
-              class="object-contain w-[80px] md:w-[85px] lg:w-[88px] 3xl:w-[92px] h-auto"
-              width="88"
-              alt
-            />
-          </div>
-          <!-- container for resellers -->
-          <div v-else-if="global.currentTab === 'sellers'">
-            <p>واكسب عملاء جدد</p>
-          </div>
+          <!-- text for customers -->
 
           <div class="app__links flex items-center justify-center mt-14 flex-wrap gap-2 md:gap-4">
             <a href="#" target="_blank">
@@ -132,8 +130,10 @@ export default {
   },
   setup() {
     const global = useGlobalStore();
+    const route = useRoute();
     return {
-      global
+      global,
+      route
     };
   },
   components: {
@@ -141,16 +141,15 @@ export default {
   },
 
   methods: {
-    setTabInStore(tabId) {
-      // sets current tab in the Pinia store
-      this.global?.changeCurrentTab(tabId);
+    updateTab(tabId) {
+      this.$router.push(`/?tab=${tabId}`);
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-#index {
+.hero {
   min-height: 78vh;
   background-image: url(../../assets/imgs/hero-bg-desktop.svg);
   background-repeat: no-repeat;

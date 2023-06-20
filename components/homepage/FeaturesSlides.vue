@@ -1,11 +1,16 @@
 <template>
-  <section id="features" class="features__slides pb-7 pt-10 lg:pb-9 lg:pt-20 mt-5 md:mt-8 lg:mt-14 xl:mt-16 3xl:mt-20 min-h-[400px]">
-    <!-- FOR CUSTOMERS -->
-    <div v-if="global.currentTab === 'customers'">
+  <section :id="global.currentTab === 'customers' ? texts.customers.navLinks.link4.sectionHash : texts.sellers.navLinks.link4.sectionHash" class="features__slides pb-7 pt-10 lg:pb-9 lg:pt-20 mt-5 md:mt-8 lg:mt-14 xl:mt-16 3xl:mt-20 min-h-[400px]">
+   
+    <div>
       <!-- title -->
-      <SectionTitle :inverted="true" :text="texts.customers.head_titles.third.text" :highlighted="texts.customers.head_titles.third.highlight"/>
+      <SectionTitle v-if="global.currentTab === 'customers'"  :inverted="true" :text="texts.customers.head_titles.third.text" :highlighted="texts.customers.head_titles.third.highlight"/>
+      <SectionTitle v-else-if="global.currentTab === 'sellers'" :inverted="true" :text="texts.sellers.head_titles.third.text" :highlighted="texts.sellers.head_titles.third.highlight"/>
+      <!-- FOR CUSTOMERS -->
       <!-- slides -->
-      <Slider :featuresList="texts.customers.features_slides"/>
+      <Slider v-if="global.currentTab === 'customers'" :featuresList="texts.customers.features_slides"/>
+      <div v-else-if="global.currentTab === 'sellers'">
+        sellers will be here
+      </div>
     </div>
   </section>
 </template>

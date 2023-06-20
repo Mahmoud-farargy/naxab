@@ -1,11 +1,11 @@
 <template>
-  <section id="contact_us" class="bg-[#343434] pb-0 pt-20 md:py-20 lg:py-24 py px-0 text-[#FFFFFF]">    
+  <section :id="global.currentTab === 'customers' ? texts.customers.navLinks.link6.sectionHash : texts.sellers.navLinks.link6.sectionHash" class="bg-[#343434] pb-0 pt-20 md:py-20 lg:py-24 py px-0 text-[#FFFFFF]">    
     <div class="inner-container px-0 md:px-7 lg:px-1">
        
         <div class="flex flex-wrap gap-y-10 gap-x-16">
           <div class="md:basis-[45%] basis-full w-full sm:w-[350px] md:w-[400px] lg:w-[450px] py-0 md:py-5 lg:py-6 xl:py-7">
               <!-- contact us - title -->
-              <div class="flex justify-center md:justify-start">
+              <div v-if="global.currentTab === 'customers'" class="flex justify-center md:justify-start">
                   <div class="title--divider text-center flex mb-5 md:mb-6 lg:mb-10 px-4">
                     <span :class="`title--divider--start bg-secondary`"></span>
                     <strong
@@ -13,6 +13,18 @@
                     >
                     {{ texts.customers.head_titles.fifth.text }}
                       <span class="text-secondary">{{texts.customers.head_titles.fifth.highlight}}</span>
+                    </strong>
+                    <span class="title--divider--end bg-secondary"></span>
+                  </div> 
+              </div>
+              <div v-else-if="global.currentTab === 'sellers'" class="flex justify-center md:justify-start">
+                  <div class="title--divider text-center flex mb-5 md:mb-6 lg:mb-10 px-4">
+                    <span :class="`title--divider--start bg-secondary`"></span>
+                    <strong
+                      :class="`'text-[#FFFFFF]':'text-[#000000]'} title--divider--middle mx-[1rem] sm:mx-[1.5rem] md:mx-[1.6rem] lg:mx-[1.8rem] 3xl:mx-[3rem] text-[18.5px] md:text-[19px] lg:text-[24px] 3xl:text-[25px] text-bold`"
+                    >
+                    {{ texts.sellers.head_titles.fifth.text }}
+                      <span class="text-secondary">{{texts.sellers.head_titles.fifth.highlight}}</span>
                     </strong>
                     <span class="title--divider--end bg-secondary"></span>
                   </div> 
@@ -83,15 +95,15 @@
             </div>
               <!-- app store links on mobile view -->
               <div class="store__links md:hidden flex items-center mb-7 gap-3">
-                <a :href="texts.customers.links.app_links.apple_store">
+                <a :href="texts.links.app_links.apple_store">
                   <img :draggable="false" :src="appleStoreImg" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Apple store"/>
                 </a>
-                <a :href="texts.customers.links.app_links.google_store">
+                <a :href="texts.links.app_links.google_store">
                   <img :draggable="false" :src="googleStoreImg" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Google store"/>
                 </a>
               </div>
             <!-- follow us - title -->
-            <div class="flex justify-center md:justify-start">
+              <div v-if="global.currentTab === 'customers'" class="flex justify-center md:justify-start">
                   <div class="title--divider text-center flex mb-5 md:mb-6 lg:mb-9 px-4">
                     <span :class="`title--divider--start bg-secondary`"></span>
                     <strong
@@ -103,27 +115,39 @@
                     <span class="title--divider--end bg-secondary"></span>
                   </div> 
               </div>
+              <div v-else-if="global.currentTab === 'sellers'" class="flex justify-center md:justify-start">
+                  <div class="title--divider text-center flex mb-5 md:mb-6 lg:mb-9 px-4">
+                    <span :class="`title--divider--start bg-secondary`"></span>
+                    <strong
+                      :class="`'text-[#FFFFFF]':'text-[#000000]'} title--divider--middle mx-[1rem] sm:mx-[1.5rem] md:mx-[1.6rem] lg:mx-[1.8rem] 3xl:mx-[3rem] text-[18.5px] md:text-[19px] lg:text-[24px] 3xl:text-[25px] text-bold`"
+                    >
+                    {{ texts.sellers.head_titles.sixth.text }}
+                      <span class="text-secondary">{{texts.sellers.head_titles.sixth.highlight}}</span>
+                    </strong>
+                    <span class="title--divider--end bg-secondary"></span>
+                  </div> 
+              </div>
               <!-- social links -->
               <div class="socials flex items-center gap-4 lg:gap-5 3xl:gap-6 mb-0 md:mb-9">
-                  <a :href="texts.customers.links.socials.twitter">
+                  <a :href="texts.links.socials.twitter">
                     <img :draggable="false" :src="twitterImg" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our twitter page"/>
                   </a>
-                  <a :href="texts.customers.links.socials.snapchat">
+                  <a :href="texts.links.socials.snapchat">
                     <img :draggable="false" :src="snapchatImg" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our snapchat page"/>
                   </a>
-                  <a :href="texts.customers.links.socials.facebook">
+                  <a :href="texts.links.socials.facebook">
                     <img :draggable="false" :src="facebookImg" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our facebook page"/>
                   </a>
-                  <a :href="texts.customers.links.socials.instagram">
+                  <a :href="texts.links.socials.instagram">
                     <img :draggable="false" :src="instagramImg" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our instagram page"/>
                   </a>
               </div>
               <!-- app store links -->
               <div class="store__links hidden md:flex items-center gap-3">
-                <a :href="texts.customers.links.app_links.apple_store">
+                <a :href="texts.links.app_links.apple_store">
                   <img :draggable="false" :src="appleStoreImg" class="object-contain w-[111px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Apple store"/>
                 </a>
-                <a :href="texts.customers.links.app_links.google_store">
+                <a :href="texts.links.app_links.google_store">
                   <img :draggable="false" :src="googleStoreImg" class="object-contain w-[111px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Google store"/>
                 </a>
               </div>
@@ -136,6 +160,7 @@
 
 <script>
 import { useVuelidate } from '@vuelidate/core';
+import { useGlobalStore } from "@/store/Modules/global";
 import SectionTitle from './SectionTitle.vue';
 import texts from '@/fixtures/texts.json';
 import FormInput from '../Generic/FormInput.vue';
@@ -154,6 +179,7 @@ export default {
   setup(){
       return {
         v$: useVuelidate(),
+        global: useGlobalStore()
       }
   },
   data(){
