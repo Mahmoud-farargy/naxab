@@ -165,7 +165,7 @@ import SectionTitle from './SectionTitle.vue';
 import texts from '@/fixtures/texts.json';
 import FormInput from '../Generic/FormInput.vue';
 import { required, minLength } from '@vuelidate/validators';
-import logoImg from '@/assets/imgs/logo-dark.svg';
+import logoImg from '@/assets/imgs/logo2.png';
 import twitterImg from '@/assets/imgs/twitter.svg';
 import facebookImg from '@/assets/imgs/fb.svg';
 import snapchatImg from '@/assets/imgs/snapchat.svg';

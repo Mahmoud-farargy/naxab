@@ -66,7 +66,7 @@
 
 <script >
 import { routesNames } from "@/helpers";
-import LogoImg from "@/assets/imgs/logo.svg";
+import LogoImg from "@/assets/imgs/logo.png";
 import { useGlobalStore } from "~/store/Modules/global";
 import Nav from "./Nav.vue";
 export default {

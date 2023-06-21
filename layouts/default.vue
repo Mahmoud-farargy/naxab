@@ -17,7 +17,7 @@ useHead({
     lang: "ar",
     dir: "rtl",
   },
-  link: [{ rel: 'icon', type: 'image/png', href: "../assets/imgs/1.png" }]
+  link: [{ rel: 'icon', type: 'image/png', href: "../assets/imgs/logo.png" }]
 });
 </script>
 

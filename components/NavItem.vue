@@ -1,7 +1,7 @@
 <template>
   <li :class="`nav-item-button ${ isActive ? 'active-view' : ''}`">
     <NuxtLink
-      :to="{path, ...(sectionHash && {hash: `#${sectionHash}`})}"
+      :to="{path, ...(sectionHash && {hash: `#${sectionHash}`}), ...(query && {query})}"
       :draggable="false"
       class="px-2 py-1.5 md:px-2 md:py-1.5 inline-block"
     >{{ title }}</NuxtLink>
@@ -28,6 +28,10 @@ export default {
     path: {
       type: String,
       required: true
+    },
+    query: {
+      type: Object,
+      required: false
     }
   }
 };

@@ -20,7 +20,7 @@
         @apply max-w-[800px] md:max-w-[900px] lg:max-w-[960px] 3xl:max-w-[1200px] px-4 md:px-7 lg:px-1 mx-auto;
     }
     .primary__button{
-        @apply text-primaryLighter border-none text-[19px] sm:text-[20px] text-center py-1 lg:py-1.5 px-5 md:px-7 lg:px-7 xl:px-8 lg:text-[21px] xl:text-[22px] 3xl:lg:text-[27px] rounded-[10px];
+        @apply text-primaryLighter border-none text-[19px] sm:text-[19.5px] text-center py-1 3xl:py-1.5 px-5 md:px-7 lg:px-7 xl:px-8 lg:text-[20px] xl:text-[21px] 3xl:lg:text-[27px] rounded-[10px];
     }
     .section__box{
         @apply pb-6 pt-5 mt-5 md:mt-8 lg:mt-14 xl:mt-16 3xl:mt-20;

@@ -15,9 +15,9 @@
         <div class="flex flex-col max-w-[620px] m-auto items-center w-full text-[17px] sm:text-[18px] md:text-[19px] mt-8 md:mt-7 lg:mt-10">
           <strong class="text-secondary font-bold">{{texts.sellers.joining_invetation.text1}}</strong>
           <div class="text-white font-normal" v-html="texts.sellers.joining_invetation.text2"/>
-          <button class="bg-secondary hover:brightness-125 ease-linear duration-150  mt-8 mb-3 text-[#92278F] font-bold cursor-pointer px-5 py-1.5 md:px-6 md:py-1.5 xl:px-8 xl:py-2 text-center rounded-[12px] text-[17.5px] md:text-[18.5px] lg:text-[19.5px]">
+          <a :href="texts.join_us_button_link" class="bg-secondary decoration-none hover:brightness-125 ease-linear duration-150  mt-8 mb-3 text-[#92278F] font-bold cursor-pointer px-5 py-1.5 md:px-6 md:py-1.5 xl:px-8 xl:py-2 text-center rounded-[12px] text-[17.5px] md:text-[18.5px] lg:text-[19.5px]">
             {{ texts.sellers.joining_invetation.button_text }}
-          </button>
+          </a>
         </div>
       </div>
     </div>

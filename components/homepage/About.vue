@@ -17,10 +17,13 @@
             </div>
             <!-- description -->
             <div class="text-[17px] sm:text-[18px] lg:text-[19px] 3xl:text-[22px] font-normal text-[#484848] mt-5">
-              {{ texts.customers.about.description }}
+              <!-- shows full description -->
+              <div v-if="isFullDescriptionShown" v-html="texts.customers.about.description"/>
+              <!-- shows a snippet of the description -->
+              <div v-else v-html="trimText(texts.customers.about.description, descriptionCharactersLimit)"/>
             </div>
         </div>
-        <!-- FOR Sellers -->
+        <!-- FOR SELLERS -->
         <div v-if="global.currentTab === 'sellers'">
             <!-- video -->
             <div>
@@ -29,19 +32,20 @@
               <img v-else :src="videoPlaceholder" :draggable="false" class="object-contain w-full min-w-[215px] h-auto" width="850" alt="" />
             </div>
             <!-- description -->
-            <div class="text-[17px] sm:text-[18px] lg:text-[19px] 3xl:text-[22px] font-normal text-[#484848] mt-5">
-              {{ texts.sellers.about.description }}
+            <div  class="text-[17px] sm:text-[18px] lg:text-[19px] 3xl:text-[22px] font-normal text-[#484848] mt-5">
+              <!-- shows full description -->
+              <div v-if="isFullDescriptionShown" v-html="texts.sellers.about.description"/>
+              <!-- shows a snippet of the description -->
+              <div  v-else v-html="trimText(texts.sellers.about.description, descriptionCharactersLimit)"/>
             </div>
         </div>
-
-        <div class="flex items-center justify-end mt-4 sm:mt-6 md:mt-7">
-          <button class="hightlighted__button primary__button">المزيد</button>
-          <button class="primary__button hover:bg-[primaryLighter]/80 ease-linear duration-150">اقل</button>
+        <!-- toggles description length visibility -->
+        <div v-if="(global.currentTab === 'customers' ? parseInt(texts.customers.about.description.length) : parseInt(texts.sellers.about.description.length)) > descriptionCharactersLimit" class="flex items-center justify-end mt-4 sm:mt-6 md:mt-7">
+          <button @click="() => isFullDescriptionShown = true" v-if="!isFullDescriptionShown" class="hightlighted__button primary__button">المزيد</button>
+          <button @click="() => isFullDescriptionShown = false" v-else class="primary__button hover:bg-[primaryLighter]/80 ease-linear duration-150">اقل</button>
         </div>
       </div>
     </div>
-
-    <!-- FOR SELLERS -->
   </section>
 </template>
 
@@ -50,11 +54,14 @@ import { useGlobalStore } from "@/store/Modules/global";
 import videoPlaceholder from "@/assets/imgs/video.svg";
 import SectionTitle from "./SectionTitle.vue";
 import texts from "@/fixtures/texts.json";
+import { trimText } from "@/helpers";
 export default {
   data() {
     return {
       texts,
-      videoPlaceholder
+      videoPlaceholder,
+      isFullDescriptionShown: false,
+      descriptionCharactersLimit: 320
     };
   },
   setup() {
@@ -65,6 +72,16 @@ export default {
   },
   components: {
     SectionTitle
+  },
+  methods: {
+    trimText
+  },
+  watch:{
+    "global.currentTab"(val){
+      if(val){
+        this.isFullDescriptionShown = false;
+      }
+    }
   }
 };
 </script>

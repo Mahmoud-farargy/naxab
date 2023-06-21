@@ -1,7 +1,7 @@
 <template>
   <nav class="flex header__nav ">
     <ul v-if="navlist && Object.keys(navlist).length > 0" @click="(e) => onListCLick(e)" class="flex space-y-4 md:space-y-0 flex-col md:flex-row md:items-center list-none gap-1 md:gap-2 lg:gap-3 w-full">
-      <NavItem v-for="(linkItem, index) in Object.values(navlist)" :isActive="activeLink === linkItem.sectionHash" :currentTab="global && global.currentTab" :sectionHash="linkItem.sectionHash" :path="global?.currentTab === 'sellers' ? `${linkItem.path}?tab=sellers` : linkItem.path" :title="linkItem.title" :key="index"/>
+      <NavItem v-for="(linkItem, index) in Object.values(navlist)" :isActive="activeLink === linkItem.sectionHash" :currentTab="global && global.currentTab" :sectionHash="linkItem.sectionHash" :path="linkItem.path" :query="global?.currentTab === 'sellers' ? {tab: 'sellers'}: null" :title="linkItem.title" :key="index"/>
     </ul>
   </nav>
 </template>
