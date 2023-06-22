@@ -3,7 +3,7 @@
     <NuxtLink
       :to="{path, ...(sectionHash && {hash: `#${sectionHash}`}), ...(query && {query})}"
       :draggable="false"
-      class="px-2 py-1.5 md:px-2 md:py-1.5 inline-block"
+      class="px-2 py-1.5 md:px-2 md:py-1.5 inline-block w-full"
     >{{ title }}</NuxtLink>
   </li>
 </template>
