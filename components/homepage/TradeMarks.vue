@@ -23,7 +23,7 @@
                         },
                         // when window width is >= 320px
                         320: {
-                        slidesPerView: 1,
+                        slidesPerView: 2,
                         spaceBetween: 20
                         },
                         // when window width is >= 480px
@@ -51,7 +51,7 @@
     </div>
 
     <!-- FOR SELLERS - features list -->
-    <div v-else-if="global.currentTab === 'sellers'">
+    <div v-else>
         <div class="inner-container ">    
             <div class="border-primaryLighter border-[3px] md:border-[6px] rounded-[17px] md:rounded-[41px] py-6 px-4 md:py-8 md:lg:px-5 lg:py-12 lg:px-6">
                 <!-- title -->

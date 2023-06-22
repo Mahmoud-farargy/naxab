@@ -91,18 +91,20 @@ export default {
     ContactUs
   },
   watch: {
-    "route.query.tab":{
-      immediate: true,
-      handler(val){
+    "route.query.tab"(val){
         if(val && (val === 'customers' || val === 'sellers')){
+          this.$nextTick(() => {
             // sets current tab in the Pinia store
-            this.global?.changeCurrentTab(val);
+            this.global.changeCurrentTab(val);
+          })
         }
-
-      }
     },
   },
-  mounted(){
+  mounted(){     
+    const tabId = this.route.query.tab;
+    if(tabId && (tabId === 'customers' || tabId === 'sellers')){
+      this.global.changeCurrentTab?.(tabId);
+    }
     this.$nextTick(() => {
       AOS.init();
     })
