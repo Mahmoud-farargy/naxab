@@ -228,6 +228,7 @@ export default {
         Object.entries(this.formState || {})?.forEach(([Key, value]) => {
           formData.append(Key, value);
         });
+        formData.append('type', 'web');
         this.isLoading = true;
         axios({
           url: texts.contact_us_request_url,
