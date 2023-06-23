@@ -33,7 +33,7 @@
             <NuxtLink class="basis-[33.3%] py-2 flex text-center justify-center" :href="routesNames.homepage.path">
                   <img
                     :src="LogoImg"
-                    class="object-contain w-[70px] md:w-[74px] lg:w-[68px] h-auto"
+                    class="object-contain w-[64px] sm:w-[70px] md:w-[74px] lg:w-[68px] h-auto"
                     :draggable="false"
                     width="68"
                     height="50"

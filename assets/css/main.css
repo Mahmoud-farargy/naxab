@@ -154,7 +154,7 @@ body {
 /* when the view turn to md breakpoint */
 @media only screen and (max-width: 819px) {
   :root{
-    --min-height-header: 70px;
+    --min-height-header: 67px;
   }
   .navbar__open{
     overflow-y: hidden !important;
