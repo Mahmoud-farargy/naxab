@@ -13,3 +13,4 @@
 - decrease some paragraphs' font size to 16px instead of 17px and also decrease the logo and header's height on mobile devices only
 - Put Google Play links on the right side
 - change the mobile menu's background and decreased it's links font size
+- convert the "texts" file to have a JS instead of JSON extension to allow for mutli-line breaking in some sentences

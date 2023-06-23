@@ -28,7 +28,7 @@
 import { useGlobalStore } from "@/store/Modules/global";
 import Slider from "./Slider.vue";
 import SectionTitle from "./SectionTitle.vue";
-import texts from "@/fixtures/texts.json";
+import texts from "@/fixtures/texts.js";
 export default {
     data() {
        return{

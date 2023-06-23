@@ -18,7 +18,7 @@
 <script>
 import mobileImg from "@/assets/imgs/mobile-2.png";
 import decorationCircleImg from "@/assets/imgs/Ellipse 34.svg";
-import texts from "@/fixtures/texts.json";
+import texts from "@/fixtures/texts.js";
 export default {
     data(){
         return {

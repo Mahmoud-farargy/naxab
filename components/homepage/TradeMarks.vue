@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import texts from "@/fixtures/texts.json";
+import texts from "@/fixtures/texts.js";
 import SectionTitle from './SectionTitle.vue';
 import TradeMarksItem from "./TradeMarksItem.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";

@@ -142,7 +142,7 @@ import appleStoreImg from "@/assets/imgs/apple-store.svg";
 import googleStoreImg from "@/assets/imgs/google-store.svg";
 import HeroCoinsImg from "@/assets/imgs/hero-coins.png";
 import HeroTabItem from "./HeroTabItem.vue";
-import texts from "@/fixtures/texts.json";
+import texts from "@/fixtures/texts.js";
 import { trimText } from "@/helpers";
 export default {
   data() {

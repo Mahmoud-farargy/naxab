@@ -16,7 +16,7 @@
 
 <script>
 import { useGlobalStore } from "@/store/Modules/global";
-import texts from "@/fixtures/texts.json";
+import texts from "@/fixtures/texts.js";
 import SectionTitle from './SectionTitle.vue';
 import PointsItem from "./PointsItem.vue";
 export default {

@@ -162,7 +162,7 @@
 import { useVuelidate } from '@vuelidate/core';
 import { useGlobalStore } from "@/store/Modules/global";
 import SectionTitle from './SectionTitle.vue';
-import texts from '@/fixtures/texts.json';
+import texts from '@/fixtures/texts.js';
 import FormInput from '../Generic/FormInput.vue';
 import { required, minLength } from '@vuelidate/validators';
 import logoImg from '@/assets/imgs/logo2.png';

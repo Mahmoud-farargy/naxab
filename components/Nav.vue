@@ -8,7 +8,7 @@
 
 <script>
 import NavItem from "./NavItem.vue";
-import texts from "@/fixtures/texts.json";
+import texts from "@/fixtures/texts.js";
 import { useGlobalStore } from "@/store/Modules/global";
 
 export default {

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import texts from '@/fixtures/texts.json';
+import texts from '@/fixtures/texts.js';
 import AOS from 'aos'
 import {
   Hero,
