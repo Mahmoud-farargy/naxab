@@ -95,11 +95,11 @@
             </div>
               <!-- app store links on mobile view -->
               <div class="store__links md:hidden flex items-center mb-7 gap-3">
-                <a :href="texts.links.app_links.apple_store">
-                  <img :draggable="false" :src="appleStoreImg" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Apple store"/>
-                </a>
                 <a :href="texts.links.app_links.google_store">
                   <img :draggable="false" :src="googleStoreImg" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Google store"/>
+                </a>
+                <a :href="texts.links.app_links.apple_store">
+                  <img :draggable="false" :src="appleStoreImg" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Apple store"/>
                 </a>
               </div>
             <!-- follow us - title -->

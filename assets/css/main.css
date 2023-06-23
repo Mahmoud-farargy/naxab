@@ -22,6 +22,7 @@ body {
 
 body {
   overflow-x: hidden;
+  overflow-y: hidden; /* will be overwritten by javascript after the preloader disappears  */
 }
 .rtl{
 	direction: rtl;
@@ -161,7 +162,7 @@ body {
   }
 
   .nav-item-button.active-view.active-view{
-    border-right: #92278F 2px solid;
+    border-right-color: #92278F;
   }
 }
 

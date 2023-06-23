@@ -1,5 +1,12 @@
 <template>
-  <section :id="global.currentTab === 'customers' ? texts.customers.navLinks.link1.sectionHash : texts.sellers.navLinks.link1.sectionHash" class="pb-6 hero flex mt-[var(--min-height-header)] flex-col pt-7 md:pt-8 lg:pt-9">
+  <section
+    :id="
+      global.currentTab === 'customers'
+        ? texts.customers.navLinks.link1.sectionHash
+        : texts.sellers.navLinks.link1.sectionHash
+    "
+    class="pb-6 hero flex mt-[var(--min-height-header)] flex-col pt-7 md:pt-8 lg:pt-9"
+  >
     <div
       class="hero__inner flex flex-col items-center text-center justify-center mx-auto w-full h-full"
     >
@@ -28,58 +35,64 @@
         <div
           class="text-white text-[17px] sm:text-[19px] md:text-[21px] lg:text-[20px] xl:text-[21px] 3xl:text-[23px]"
         >
-          <h1 class="font-bold mt-10 md:mt-12 mb-2.5 animate__animated animate__bounce animate__delay-0.8s">التطبيق الأول</h1>
-        
-          <Transition name="tab-content" mode="out-in"> 
+          <h1
+            class="font-bold mt-10 md:mt-12 mb-2.5 animate__animated animate__bounce animate__delay-0.8s"
+          >
+            التطبيق الأول
+          </h1>
+
+          <Transition name="tab-content" mode="out-in">
             <!-- text for customers -->
             <div v-if="global.currentTab === 'customers'">
-                  <p v-html="texts.customers.intro_section.text1" class="font-normal mt-1"/>         
-                  <p v-html="texts.customers.intro_section.text2" class="text-secondary mt-6" />
-                  <!-- customers' container-->
-                  <div
-                    class="flex items-center justify-center gap-7 sm:gap-10 lg:gap-16 w-full flex-nowrap mt-3"
-                  >
-                    <img
-                      :draggable="false"
-                      :src="coinsImg"
-                      class="object-contain w-[65px] md:w-[79px] lg:w-[69px] 3xl:w-[73px] h-auto"
-                      width="69"
-                      alt
-                    />
-                    <img
-                      :draggable="false"
-                      :src="giftImg"
-                      class="object-contain w-[80px] md:w-[85px] lg:w-[88px] 3xl:w-[92px] h-auto"
-                      width="88"
-                      alt
-                    />
-                  </div>
+              <p
+                v-html="texts.customers.intro_section.text1"
+                class="font-normal mt-1"
+              />
+              <p
+                v-html="texts.customers.intro_section.text2"
+                class="text-secondary mt-6"
+              />
+              <!-- customers' container-->
+              <div
+                class="flex items-center justify-center gap-7 sm:gap-10 lg:gap-16 w-full flex-nowrap mt-3"
+              >
+                <img
+                  :draggable="false"
+                  :src="coinsImg"
+                  class="object-contain w-[65px] md:w-[79px] lg:w-[69px] 3xl:w-[73px] h-auto"
+                  width="69"
+                  alt
+                />
+                <img
+                  :draggable="false"
+                  :src="giftImg"
+                  class="object-contain w-[80px] md:w-[85px] lg:w-[88px] 3xl:w-[92px] h-auto"
+                  width="88"
+                  alt
+                />
               </div>
+            </div>
 
-          <!-- text for sellers -->
-              <div v-else >
-                  <p v-html="texts.sellers.intro_section.text1" class="font-normal md:font-bold"/>
-                  <p
-                    v-html="texts.sellers.intro_section.text2"
-                    class="text-secondary mt-6"
-                  />
-                  <!-- resellers' container-->
-                  <div>
-                    <p v-html="texts.sellers.intro_section.text3"/>
-                  </div>
+            <!-- text for sellers -->
+            <div v-else>
+              <p
+                v-html="texts.sellers.intro_section.text1"
+                class="font-normal md:font-bold"
+              />
+              <p
+                v-html="texts.sellers.intro_section.text2"
+                class="text-secondary mt-6"
+              />
+              <!-- resellers' container-->
+              <div>
+                <p v-html="texts.sellers.intro_section.text3" />
               </div>
+            </div>
           </Transition>
 
-          <div class="app__links flex items-center justify-center mt-14 flex-wrap gap-2 md:gap-4">
-            <a href="#" target="_blank">
-              <img
-                :draggable="false"
-                :src="appleStoreImg"
-                width="220"
-                class="object-contain hover:shadow-md w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] 3xl:w-[200px] h-auto"
-                alt="Apple store"
-              />
-            </a>
+          <div
+            class="app__links flex items-center justify-center mt-14 flex-wrap gap-2 md:gap-4"
+          >
             <a href="#" target="_blank">
               <img
                 :draggable="false"
@@ -89,17 +102,32 @@
                 alt="Google store"
               />
             </a>
+            <a href="#" target="_blank">
+              <img
+                :draggable="false"
+                :src="appleStoreImg"
+                width="220"
+                class="object-contain hover:shadow-md w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] 3xl:w-[200px] h-auto"
+                alt="Apple store"
+              />
+            </a>
           </div>
         </div>
       </div>
     </div>
     <!-- coins image -->
-    <div class="w-full self-end flex-1 md:flex-auto flex justify-center mt-7 sm:mt-12">
+    <div
+      class="w-full self-end flex-1 md:flex-auto flex justify-center mt-7 sm:mt-12"
+    >
       <img
         :draggable="false"
         :src="HeroCoinsImg"
         class="object-contain px-2 min-w-[180px] w-[270px] sm:w-[280px] md:w-[390px] lg:w-[449px] xl:w-[510px] h-auto"
-        :alt="global.currentTab === 'customers' ? trimText(texts.customers.intro_section.text1, 155) : trimText(texts.sellers.intro_section.text1, 155)"
+        :alt="
+          global.currentTab === 'customers'
+            ? trimText(texts.customers.intro_section.text1, 155)
+            : trimText(texts.sellers.intro_section.text1, 155)
+        "
         width="510"
       />
     </div>
@@ -124,7 +152,7 @@ export default {
       appleStoreImg,
       googleStoreImg,
       HeroCoinsImg,
-      texts
+      texts,
     };
   },
   setup() {
@@ -132,19 +160,46 @@ export default {
     const route = useRoute();
     return {
       global,
-      route
+      route,
     };
   },
   components: {
-    HeroTabItem
+    HeroTabItem,
   },
-
   methods: {
     trimText,
     updateTab(tabId) {
       this.$router.push(`/?tab=${tabId}`);
-    }
-  }
+    },
+  },
+  watch: {
+    "global.currentTab"(val) {
+      if (val) {
+        const hash = this.route?.hash;
+        nextTick(() => {
+          if (hash) {
+            const element = document.getElementById(hash.replace(/#/, ""));
+            if (element) {
+              const yOffset =
+                -parseInt(
+                  getComputedStyle(document.body)?.getPropertyValue(
+                    "--min-height-header"
+                  )
+                ) ?? 80;
+              const y =
+                element.getBoundingClientRect().top +
+                window.pageYOffset +
+                yOffset;
+              window.scrollTo({
+                top: y,
+                behavior: "smooth",
+              });
+            }
+          }
+        });
+      }
+    },
+  },
 };
 </script>
 
@@ -160,5 +215,4 @@ export default {
     background-image: url(../../assets/imgs/hero-bg-mobile.svg);
   }
 }
-
 </style>

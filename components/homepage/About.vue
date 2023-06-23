@@ -42,7 +42,7 @@
         <!-- toggles description length visibility -->
         <div v-if="(global.currentTab === 'customers' ? parseInt(texts.customers.about.description.length) : parseInt(texts.sellers.about.description.length)) > descriptionCharactersLimit" class="flex items-center justify-end mt-4 sm:mt-6 md:mt-7">
           <button @click="() => isFullDescriptionShown = true" v-if="!isFullDescriptionShown" class="hightlighted__button primary__button">المزيد</button>
-          <button @click="() => isFullDescriptionShown = false" v-else class="primary__button hover:bg-[primaryLighter]/80 ease-linear duration-150">اقل</button>
+          <button @click="() => isFullDescriptionShown = false" v-else class="hightlighted__button primary__button ease-linear duration-150">اقل</button>
         </div>
       </div>
     </div>
