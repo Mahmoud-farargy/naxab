@@ -1,8 +1,10 @@
 {
   "seo": {
     "_comment": "حط هنااسم ووصف للموقع لتحسين نتائج محركات البحث",
-    "title": "نكسب",
-    "description": ""
+    "title": "Naxab - نكسب",
+    "website_url": "naxab.net",
+    "website_image": "../assets/imgs/site_img.jpg",
+    "keywords": "اكسب مكافئات، جمع نقاط، اكسب عملاء جدد، تطبيق نكسب، نقاط الولاء، نقاط الكاش باك"
   },
   "tabs_names": {
     "_comment": "اسماء التابات",

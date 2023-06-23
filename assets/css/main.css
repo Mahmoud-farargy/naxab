@@ -196,7 +196,12 @@ body {
 .fade-effect{
 	animation: fadeIn 0.2s ease-out;
 }
-
+.fade-loader-enter-active{
+  animation: fadeIn 0.5s;
+}
+.fade-loader-leave-active{
+  animation: fadeIn 0.9s reverse backwards ease;
+}
 .mobile-slider-enter-active {
 	animation: slide-in 0.3s;
 }
@@ -206,7 +211,7 @@ body {
 
 @keyframes slide-in {
 	0% {
-	  transform: translate3d(-100%, 0px, 0px);;
+	  transform: translate3d(-100%, 0px, 0px);
 	  opacity: 0;
 	}
 	100% {
@@ -214,7 +219,6 @@ body {
 	  opacity: 1;
 	}
 }
-
 .tab-content-enter-active {
   transition: all .3s ease;
 }

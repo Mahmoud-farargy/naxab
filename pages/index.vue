@@ -2,7 +2,8 @@
   <!-- HOME PAGE -->
   <Page
     :title="texts && texts.seo && texts.seo.title"
-    :description="texts && texts.seo && texts.seo.description"
+    :description="global?.currentTab === 'customers' ? trimText(texts.customers.intro_section.text1, 155) : trimText(texts.sellers.intro_section.text1, 155)"
+    :seo_title="global?.currentTab === 'customers' ? texts.tabs_names.first_tab : texts.tabs_names.second_tab"
   >
     <!-- intro section -->
     <Hero />
@@ -35,6 +36,7 @@ import {
   ContactUs
 } from "@/components";
 import { useGlobalStore } from "@/store/Modules/global";
+import { trimText } from "@/helpers";
 export default {
   setup() {
     const headersLength = ref(200);
@@ -89,6 +91,9 @@ export default {
     TradeMarks,
     CallToAction,
     ContactUs
+  },
+  methods: {
+    trimText
   },
   watch: {
     "route.query.tab"(val){

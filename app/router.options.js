@@ -13,7 +13,6 @@ export default {
                     behavior: "smooth"
                 })
             }
-
         } else {
             window.scrollTo({
                 top: 0,

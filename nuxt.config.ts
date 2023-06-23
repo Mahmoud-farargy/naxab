@@ -1,3 +1,4 @@
+import texts from "./fixtures/texts.json";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -11,6 +12,104 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt'
   ],
+  app:{
+    head: {
+      title: texts.seo.title,
+      meta: [
+        {
+          name: "name",
+          content: texts.seo.title
+        },
+        {
+          name: "image",
+          content: texts.seo.website_image
+        },      
+        {
+          name: "apple-mobile-web-app-status-bar-style",
+          content: "default"
+        },
+        {
+          name: "mobile-web-app-capable",
+          content: "yes"
+        },
+        {
+          name: "keywords",
+          content: texts.seo.keywords
+        },
+        // google meta tags
+        {
+          name: "og:title",
+          content: texts.seo.title,
+        },
+        {
+          name: "og:url",
+          content: texts.seo.website_url
+        },
+        {
+          name: "og:type",
+          content: 'website'
+        },
+        {
+          name: "og:image",
+          content: texts.seo.website_image
+        },
+        {
+          property: "og:url",
+          content: texts.seo.website_url
+        },
+        {
+          property: "og:type",
+          content: 'website'
+        },
+        {
+          property: "og:image",
+          content: texts.seo.website_image
+        },
+        {
+          name: "og:locale",
+          content: "ar_EG"
+        },
+        {
+          name: "og:site_name",
+          content: texts.seo.title
+        },
+        //social media meta tags
+        {
+          name: "twitter:card",
+          content: "summary"
+        },
+        {
+          name: "twitter:title",
+          content: texts.seo.title
+        },
+        {
+          name: "twitter:image",
+          content: texts.seo.website_image
+        },
+        {
+          name: "instagram:site",
+          ...(texts.links.socials.instagram && {
+            content: `@${texts.links.socials.instagram}`
+          })
+        },
+        {
+          name: "twitter:site",
+          ...(texts.links.socials.twitter && {
+             content: `@${texts.links.socials.twitter}`
+          })
+        },
+        {
+          name: "twitter:image:alt",
+          content: texts.seo.title
+        },{
+          name: "twitter:app:country",
+          content: "EGY"
+        }
+        
+      ],
+      link: [{ rel: "icon", type: "image/png", href: "/assets/imgs/logo.png" }],
+    }
+  },
   ssr:true,
   plugins: [],
   postcss: {

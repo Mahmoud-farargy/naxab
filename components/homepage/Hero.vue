@@ -28,7 +28,7 @@
         <div
           class="text-white text-[17px] sm:text-[19px] md:text-[21px] lg:text-[20px] xl:text-[21px] 3xl:text-[23px]"
         >
-          <h2 class="font-bold mt-10 md:mt-12 mb-2.5 animate__animated animate__bounce animate__delay-0.8s">التطبيق الأول</h2>
+          <h1 class="font-bold mt-10 md:mt-12 mb-2.5 animate__animated animate__bounce animate__delay-0.8s">التطبيق الأول</h1>
         
           <Transition name="tab-content" mode="out-in"> 
             <!-- text for customers -->
@@ -99,7 +99,7 @@
         :draggable="false"
         :src="HeroCoinsImg"
         class="object-contain px-2 min-w-[180px] w-[270px] sm:w-[280px] md:w-[390px] lg:w-[449px] xl:w-[510px] h-auto"
-        alt
+        :alt="global.currentTab === 'customers' ? trimText(texts.customers.intro_section.text1, 155) : trimText(texts.sellers.intro_section.text1, 155)"
         width="510"
       />
     </div>
@@ -115,6 +115,7 @@ import googleStoreImg from "@/assets/imgs/google-store.svg";
 import HeroCoinsImg from "@/assets/imgs/hero-coins.png";
 import HeroTabItem from "./HeroTabItem.vue";
 import texts from "@/fixtures/texts.json";
+import { trimText } from "@/helpers";
 export default {
   data() {
     return {
@@ -139,6 +140,7 @@ export default {
   },
 
   methods: {
+    trimText,
     updateTab(tabId) {
       this.$router.push(`/?tab=${tabId}`);
     }
@@ -154,6 +156,7 @@ export default {
   background-position: center;
   background-size: cover;
   @media only screen and (max-width: 680px) {
+    min-height: 70vh;
     background-image: url(../../assets/imgs/hero-bg-mobile.svg);
   }
 }

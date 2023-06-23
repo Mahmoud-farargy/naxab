@@ -10,16 +10,3 @@
     <Footer />
   </div>
 </template>
-
-<script setup>
-useHead({
-  bodyAttrs: {
-    lang: "ar",
-    dir: "rtl",
-  },
-  link: [{ rel: 'icon', type: 'image/png', href: "../assets/imgs/logo.png" }]
-});
-</script>
-
-<style>
-</style>
