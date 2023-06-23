@@ -22,7 +22,7 @@ export default defineNuxtConfig({
         },
         {
           name: "image",
-          content: texts.seo.website_image
+          content: "/assets/imgs/site_img.jpg"
         },      
         {
           name: "apple-mobile-web-app-status-bar-style",
@@ -51,7 +51,7 @@ export default defineNuxtConfig({
         },
         {
           name: "og:image",
-          content: texts.seo.website_image
+          content: "/assets/imgs/site_img.jpg"
         },
         {
           property: "og:url",
@@ -63,7 +63,7 @@ export default defineNuxtConfig({
         },
         {
           property: "og:image",
-          content: texts.seo.website_image
+          content: "/assets/imgs/site_img.jpg"
         },
         {
           name: "og:locale",
@@ -84,7 +84,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:image",
-          content: texts.seo.website_image
+          content: "/assets/imgs/site_img.jpg"
         },
         {
           name: "instagram:site",
@@ -101,7 +101,8 @@ export default defineNuxtConfig({
         {
           name: "twitter:image:alt",
           content: texts.seo.title
-        },{
+        },
+        {
           name: "twitter:app:country",
           content: "EGY"
         }

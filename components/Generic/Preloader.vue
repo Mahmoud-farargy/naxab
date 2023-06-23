@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-onMounted(() =>{
+onBeforeMount(() =>{
     document.body.style.overflowY = 'hidden';
 });
 onBeforeUnmount(() => {

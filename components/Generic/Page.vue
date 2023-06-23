@@ -1,4 +1,9 @@
 <template>
+  <Head>
+    <Meta itemprop="thumbnailUrl" :href="siteImg" />
+    <Meta property="og:image" itemprop="image" :content="siteImg"/>
+    <Meta name="image" :content="siteImg"/>
+  </Head>
   <div>
     <slot />
   </div>
@@ -6,6 +11,7 @@
 
 <script setup>
 import { siteInfo } from "@/helpers";
+import siteImg from "@/assets/imgs/site_img.jpg";
 const props = defineProps({
   title: String,
   seo_title: String,
@@ -17,11 +23,11 @@ useHead({
   meta: [
     {
       name: "name",
-      content: props.seo_title,
+      content: props.title || siteInfo.name_ar,
     },
     {
       name: "og:title",
-      content: props.seo_title,
+      content: props.title || siteInfo.name_ar,
     },
     {
       name: "og:description",
@@ -29,7 +35,7 @@ useHead({
     },
     {
       property: "og:title",
-      content: props.seo_title,
+      content: props.title || siteInfo.name_ar,
     },
     {
       property: "og:description",

@@ -2,8 +2,7 @@
   <!-- HOME PAGE -->
   <Page
     :title="texts && texts.seo && texts.seo.title"
-    :description="global?.currentTab === 'customers' ? trimText(texts.customers.intro_section.text1, 155) : trimText(texts.sellers.intro_section.text1, 155)"
-    :seo_title="global?.currentTab === 'customers' ? texts.tabs_names.first_tab : texts.tabs_names.second_tab"
+    :description="global?.currentTab === 'customers' ? trimText(` التطيبق الذي ${texts.customers.intro_section.text1}`, 155) : trimText(` التطيبق الذي ${texts.sellers.intro_section.text1}`, 155)"
   >
     <!-- intro section -->
     <Hero />
