@@ -57,10 +57,10 @@
                 <!-- title -->
                 <SectionTitle class="mt-3 lg:mt-0" :text="texts.sellers.head_titles.fourth.text" :highlighted="texts.sellers.head_titles.fourth.highlight"/>
                 <!-- features items -->
-                <ul class="list-none grid grid-cols-1 md:grid-cols-2 mt-5 md:mt-7 lg:mt-8 gap-4">
+                <ul class="list-none grid grid-cols-1 gap-3.5 md:grid-cols-2 mt-5 md:mt-7 lg:mt-8 md:gap-4">
                     <li v-for="(feat, index) in texts.sellers.features" :key="index" class="flex flex-nowrap gap-x-2">
                         <img :src="checkMarkIcon" width="31" height="31" class="object-contain w-[20px] h-[20px] md:w-[31px] md:h-[31px]" alt="" />
-                        <p v-html="feat" class="text-[17px] md:text-[18px] lg:text-[19px]"/>
+                        <p v-html="feat" class="text-[16px] md:text-[18px] lg:text-[19px]"/>
                     </li>
                 </ul>
             </div>   

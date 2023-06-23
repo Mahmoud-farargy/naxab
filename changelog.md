@@ -9,3 +9,5 @@
 # Changes in [1.0.3] (2023-06-23)
 - add preloader animation to appear while the site is first loading
 - enhance Search Engine Optimization results by adding important meta tags to the head
+- edit out site's description when viewed from social media chat box
+- decrease some paragraphs' font size to 16px instead of 17px and also decrease the logo and header's height on mobile devices only

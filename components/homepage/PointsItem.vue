@@ -9,7 +9,7 @@
     <div v-if="item.title" class="text-[#92278F] text-center mt-2">
         <strong>{{ item.title }}</strong>
     </div>
-    <p v-html="item.description" class="text-[17px] text-center sm:text-[#484848] md:text-[18px] 2xl:text-[19px] font-normal mt-6 md:mt-4"/>
+    <p v-html="item.description" class="text-[16px] text-center sm:text-[#484848] md:text-[18px] 2xl:text-[19px] font-normal mt-6 md:mt-4"/>
   </li>
 </template>
 

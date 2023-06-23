@@ -16,7 +16,7 @@
               <img v-else :src="videoPlaceholder" :draggable="false" class="object-contain w-full min-w-[215px] h-auto" width="850" alt="" />
             </div>
             <!-- description -->
-            <div class="text-[17px] sm:text-[18px] lg:text-[19px] 3xl:text-[22px] font-normal text-[#484848] mt-5">
+            <div class="text-[16px] sm:text-[18px] lg:text-[19px] 3xl:text-[22px] font-normal text-[#484848] mt-5">
               <!-- shows full description -->
               <div v-if="isFullDescriptionShown" v-html="texts.customers.about.description"/>
               <!-- shows a snippet of the description -->
@@ -32,7 +32,7 @@
               <img v-else :src="videoPlaceholder" :draggable="false" class="object-contain w-full min-w-[215px] h-auto" width="850" alt="" />
             </div>
             <!-- description -->
-            <div  class="text-[17px] sm:text-[18px] lg:text-[19px] 3xl:text-[22px] font-normal text-[#484848] mt-5">
+            <div  class="text-[16px] sm:text-[18px] lg:text-[19px] 3xl:text-[22px] font-normal text-[#484848] mt-5">
               <!-- shows full description -->
               <div v-if="isFullDescriptionShown" v-html="texts.sellers.about.description"/>
               <!-- shows a snippet of the description -->
