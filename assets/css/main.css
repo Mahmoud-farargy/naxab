@@ -163,6 +163,8 @@ body {
 
   .nav-item-button.active-view.active-view{
     border-right-color: #92278F;
+    color: #fff;
+    font-weight: bold;
   }
 }
 

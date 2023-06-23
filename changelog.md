@@ -14,3 +14,4 @@
 - Put Google Play links on the right side
 - change the mobile menu's background and decreased it's links font size
 - convert the "texts" file to have a JS instead of JSON extension to allow for mutli-line breaking in some sentences
+- make the active link on the mobile menu to be bolder and have a color of white
