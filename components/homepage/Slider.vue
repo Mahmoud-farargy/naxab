@@ -37,7 +37,7 @@
           >
             <div class="flex flex-col items-center justify-center gap-5">
                 <img
-                  class="w-[320px] h-auto object-contain max-h-[320px] lg:max-h-[470px] xl:max-h-[510px]"
+                  class="w-[400px] h-auto object-contain max-h-[520px] lg:max-h-[490px] xl:max-h-[580px]"
                   :src="featureSlide.image"
                   @error="(e) => handleImgError(e)"
                   loading="lazy"
