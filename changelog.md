@@ -16,3 +16,4 @@
 - convert the "texts" file to have a JS instead of JSON extension to allow for mutli-line breaking in some sentences
 - make the active link on the mobile menu to be bolder and have a color of white
 - enhance the SEO, Accessibility and best practices on Lighthouse
+- change some images that has the old logo with the new one

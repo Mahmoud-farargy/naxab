@@ -41,8 +41,11 @@
         </div>
         <!-- toggles description length visibility -->
         <div v-if="(global.currentTab === 'customers' ? parseInt(texts.customers.about.description.length) : parseInt(texts.sellers.about.description.length)) > descriptionCharactersLimit" class="flex items-center justify-end mt-4 sm:mt-6 md:mt-7">
-          <button @click="() => isFullDescriptionShown = true" v-if="!isFullDescriptionShown" class="hightlighted__button primary__button">المزيد</button>
-          <button @click="() => isFullDescriptionShown = false" v-else class="hightlighted__button primary__button ease-linear duration-150">اقل</button>
+          <button @click="() => isFullDescriptionShown = !isFullDescriptionShown" class="hightlighted__button primary__button flex items-center gap-2 active:brightness-150">
+            <span v-if="!isFullDescriptionShown">المزيد</span>
+            <span v-else>أقل</span>
+            <svg :style="{transform: isFullDescriptionShown ? 'rotate(180deg)' : 'rotate(0)'}" class="ease-linear duration-100" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="m216.49 104.49l-80 80a12 12 0 0 1-17 0l-80-80a12 12 0 0 1 17-17L128 159l71.51-71.52a12 12 0 0 1 17 17Z"/></svg>
+          </button>
         </div>
       </div>
     </div>
