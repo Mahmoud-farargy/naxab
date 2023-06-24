@@ -97,7 +97,8 @@
               <img
                 :draggable="false"
                 :src="googleStoreImg"
-                width="220"
+                width="170"
+                height="47"
                 class="object-contain hover:shadow-md w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] 3xl:w-[200px] h-auto"
                 alt="Google store"
               />
@@ -106,7 +107,8 @@
               <img
                 :draggable="false"
                 :src="appleStoreImg"
-                width="220"
+                width="170"
+                height="47"
                 class="object-contain hover:shadow-md w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] 3xl:w-[200px] h-auto"
                 alt="Apple store"
               />

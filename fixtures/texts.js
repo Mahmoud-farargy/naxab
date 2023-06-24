@@ -301,15 +301,15 @@ const texts = {
   links: {
     // حط لينكات السوشيال ميديا تحت
     socials: {
-      instagram: "",
-      facebook: "",
-      twitter: "",
-      snapchat: ""
+      instagram: "#",
+      facebook: "#",
+      twitter: "#",
+      snapchat: "#"
     },
     // لينكات البرنامج علي جوجل ستور وابل ستور
     app_links: {
-      google_store: "",
-      apple_store: ""
+      google_store: "#",
+      apple_store: "#"
     }
   },
   footer_copyright: {
@@ -317,7 +317,7 @@ const texts = {
     text: "جميع الحقوق محفوظة"
   },
   // ضيف لينك لزرار انضم الآن وابدأ التجربة
-  join_us_button_link: "",
+  join_us_button_link: "#",
   // الخاص بتواصل معانا تحت URL requestحط لينك ال
   contact_us_request_url: ""
 }

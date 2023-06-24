@@ -15,6 +15,9 @@ export default defineNuxtConfig({
   app:{
     head: {
       title: texts.seo.title,
+      htmlAttrs:{
+        lang: "ar"
+      },
       meta: [
         {
           name: "name",

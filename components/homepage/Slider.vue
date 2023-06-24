@@ -3,9 +3,11 @@
     <div class="swiper-holder w-[75%] features__slider m-auto relative xl:w-[65%] 2xl:w-[55%]">
       <button
         ref="leftArrow"
-        id="to-right"
+        id="go-right"
         class="prev-nav-button absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] right-[-1%] md:right-[2%] lg:right-[5%] xl:right-[10%]"
         @click="goRight"
+        aria-label="Go right"
+        aria-labelledby="Go right"
       >
         <img
           class="w-[22px] md:w-[27px] lg:w-[31px] opacity-80 hover:opacity-100 ease-linear duration-150"
@@ -39,6 +41,8 @@
                   :src="featureSlide.image"
                   @error="(e) => handleImgError(e)"
                   loading="lazy"
+                  width="320"
+                  height="320"
                   alt
                 />
             </div>
@@ -48,7 +52,10 @@
           </div>
         </swiper-slide>
       </swiper>
-      <button ref="rightArrow" id="to-left" class="absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] left-[-1%] md:left-[2%] lg:left-[5%] xl:left-[10%]" @click="goLeft">
+      <button ref="rightArrow"        
+        aria-label="Go left"
+        aria-labelledby="Go left"
+        id="go-left" class="absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] left-[-1%] md:left-[2%] lg:left-[5%] xl:left-[10%]" @click="goLeft">
         <img
           class="w-[22px] md:w-[27px] lg:w-[31px] opacity-80 hover:opacity-100 ease-linear duration-150"
           src="../../assets/imgs/left-arrow.svg"
@@ -74,8 +81,8 @@ const rightArrow = ref(null);
 // Functions
 const handleArrows = () => {
   if (router.currentRoute.value.fullPath == "/") {
-    const to_right = document.getElementById("to-right");
-    const to_left = document.getElementById("to-left");
+    const to_right = document.getElementById("go-right");
+    const to_left = document.getElementById("go-left");
     to_right.style.display = "none";
     to_left.style.display = "none";
     if (
