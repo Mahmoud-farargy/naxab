@@ -17,3 +17,4 @@
 - make the active link on the mobile menu to be bolder and have a color of white
 - enhance the SEO, Accessibility and best practices on Lighthouse
 - change some images that has the old logo with the new one
+- make the mobile image larger a bit
