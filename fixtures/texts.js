@@ -1,3 +1,4 @@
+const baseURLAPI = "https://naxab.net/api";
 const texts = {
   seo: {
     // حط هنااسم ووصف للموقع لتحسين نتائج محركات البحث
@@ -319,7 +320,7 @@ const texts = {
   // ضيف لينك لزرار انضم الآن وابدأ التجربة
   join_us_button_link: "#",
   // الخاص بتواصل معانا تحت URL requestحط لينك ال
-  contact_us_request_url: ""
+  contact_us_request_url: `${baseURLAPI}/contact-us`
 }
 
 export default texts;

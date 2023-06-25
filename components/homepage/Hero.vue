@@ -10,7 +10,7 @@
     <div
       class="hero__inner flex flex-col items-center text-center justify-center mx-auto w-full h-full"
     >
-      <div class="px-6 sm:px-10 lg:px-11 max-w-[550px] min-h-[480px]">
+      <div class="px-1 max-w-[89%] mx-auto sm:px-10 lg:px-11 sm:max-w-[550px] min-h-[480px]">
         <!-- tabs -->
         <div class="relative w-full">
           <ul
@@ -61,6 +61,7 @@
                   :src="coinsImg"
                   class="object-contain w-[65px] md:w-[79px] lg:w-[69px] 3xl:w-[73px] h-auto"
                   width="69"
+                  height="75"
                   alt
                 />
                 <img
@@ -68,6 +69,7 @@
                   :src="giftImg"
                   class="object-contain w-[80px] md:w-[85px] lg:w-[88px] 3xl:w-[92px] h-auto"
                   width="88"
+                  height="75"
                   alt
                 />
               </div>
@@ -131,6 +133,7 @@
             : trimText(texts.sellers.intro_section.text1, 155)
         "
         width="510"
+        height="321"
       />
     </div>
   </section>

@@ -108,8 +108,11 @@ export default defineNuxtConfig({
         {
           name: "twitter:app:country",
           content: "EGY"
+        },
+        {
+          name: "theme-color",
+          content: "#92278F"
         }
-        
       ],
       link: [{ rel: "icon", type: "image/png", href: "/assets/imgs/logo.png" }],
     }

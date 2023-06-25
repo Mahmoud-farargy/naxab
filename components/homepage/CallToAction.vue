@@ -8,7 +8,7 @@
         </div>
         <!-- mobile graphic -->
         <div class="relative mobile__graphic" data-aos-duration="1200" data-aos-delay="250" data-aos-once="true" data-aos="zoom-in">
-            <img :src="mobileImg" class="select-none z-[1] object-fit h-auto w-[230px] sm:w-[280px] md:w-[330px] lg:w-[380px] 2xl:w-[450px]" width="400" :draggable="false" alt=""/>
+            <img :src="mobileImg" class="select-none z-[1] object-fit h-auto w-[230px] sm:w-[280px] md:w-[330px] lg:w-[380px] 2xl:w-[450px]" width="400" height="300" :draggable="false" alt=""/>
         </div>
 
     </div>
