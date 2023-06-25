@@ -13,7 +13,7 @@
             <div>
               <!-- ----- replace this image with your video right here ---- -->
               <video v-if="texts.customers.about.video_url" :src="texts.customers.about.video_url" :autoplay="false" playsinline controls class="object-contain w-full h-auto min-w-[215px]" />
-              <img v-else :src="videoPlaceholder" :draggable="false" class="object-contain select-none w-full min-w-[215px] h-auto" width="850" alt="" />
+              <img v-else :src="videoPlaceholder" :draggable="false" class="object-contain select-none w-full min-w-[215px] h-auto" width="850" height="534" alt="" />
             </div>
             <!-- description -->
             <div class="text-[16px] sm:text-[18px] lg:text-[19px] 3xl:text-[22px] font-normal text-[#484848] mt-5">
@@ -29,7 +29,7 @@
             <div>
               <!-- ----- replace this image with your video right here ---- -->
               <video v-if="texts.sellers.about.video_url" :src="texts.sellers.about.video_url" :autoplay="false" playsinline controls class="object-contain w-full h-auto min-w-[215px]" />
-              <img v-else :src="videoPlaceholder" :draggable="false" class="object-contain select-none w-full min-w-[215px] h-auto" width="850" alt="" />
+              <img v-else :src="videoPlaceholder" :draggable="false" class="object-contain select-none w-full min-w-[215px] h-auto" width="850" height="534" alt="" />
             </div>
             <!-- description -->
             <div  class="text-[16px] sm:text-[18px] lg:text-[19px] 3xl:text-[22px] font-normal text-[#484848] mt-5">

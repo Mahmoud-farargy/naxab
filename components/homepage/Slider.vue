@@ -4,7 +4,7 @@
       <button
         ref="leftArrow"
         id="go-right"
-        class="prev-nav-button absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] right-[-1%] md:right-[2%] lg:right-[5%] xl:right-[10%]"
+        class="prev-nav-button absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] right-[-8%] sm:right-[-2%] md:right-[2%] lg:right-[5%] xl:right-[10%]"
         @click="goRight"
         aria-label="Go right"
         aria-labelledby="Go right"
@@ -13,6 +13,8 @@
           class="w-[22px] md:w-[27px] lg:w-[31px] opacity-80 hover:opacity-100 ease-linear duration-150"
           src="../../assets/imgs/right-arrow.svg"
           alt
+          width="31"
+          height="50"
         />
       </button>
       <swiper
@@ -37,7 +39,7 @@
           >
             <div class="flex flex-col items-center justify-center gap-5">
                 <img
-                  class="w-[400px] h-auto object-contain max-h-[520px] lg:max-h-[490px] xl:max-h-[580px]"
+                  class="w-[370px] h-auto object-contain max-h-[450px] lg:max-h-[490px] xl:max-h-[580px]"
                   :src="featureSlide.image"
                   @error="(e) => handleImgError(e)"
                   loading="lazy"
@@ -55,11 +57,13 @@
       <button ref="rightArrow"        
         aria-label="Go left"
         aria-labelledby="Go left"
-        id="go-left" class="absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] left-[-1%] md:left-[2%] lg:left-[5%] xl:left-[10%]" @click="goLeft">
+        id="go-left" class="absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] left-[-8%] sm:left-[-2%] md:left-[2%] lg:left-[5%] xl:left-[10%]" @click="goLeft">
         <img
           class="w-[22px] md:w-[27px] lg:w-[31px] opacity-80 hover:opacity-100 ease-linear duration-150"
           src="../../assets/imgs/left-arrow.svg"
           alt
+          width="31"
+          height="50"
         />
       </button>
     </div>

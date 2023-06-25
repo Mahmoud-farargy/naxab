@@ -91,15 +91,15 @@
           <div class="bg-[#272727] flex flex-col items-center md:bg-transparent pt-8 pb-9 md:pt-0 md:pb-0 basis-full w-full md:basis-[45%] sm:w-auto">
             <!-- logo -->
             <div class="mb-8 md:mb-10 lg:mb-16" data-aos-duration="300" data-aos-delay="250" data-aos-once="true" data-aos="zoom-in-up">
-              <img :draggable="false" :src="logoImg" class="object-contain w-[96px] sm:w-[102px] md:w-[120px] lg:w-[123px] 3xl:w-[138px]" alt=""/>
+              <img :draggable="false" :src="logoImg" width="123" height="86" class="object-contain w-[96px] sm:w-[102px] md:w-[120px] lg:w-[123px] 3xl:w-[138px]" alt=""/>
             </div>
               <!-- app store links on mobile view -->
               <div class="store__links md:hidden flex items-center mb-7 gap-3">
                 <a :href="texts.links.app_links.google_store">
-                  <img :draggable="false" :src="googleStoreImg" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Google store"/>
+                  <img :draggable="false" :src="googleStoreImg" width="115" height="32" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Google store"/>
                 </a>
                 <a :href="texts.links.app_links.apple_store">
-                  <img :draggable="false" :src="appleStoreImg" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Apple store"/>
+                  <img :draggable="false" :src="appleStoreImg" width="115" height="32" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Apple store"/>
                 </a>
               </div>
             <!-- follow us - title -->
@@ -145,10 +145,10 @@
               <!-- app store links -->
               <div class="store__links hidden md:flex items-center gap-3">
                 <a :href="texts.links.app_links.apple_store">
-                  <img :draggable="false" :src="appleStoreImg" class="object-contain w-[111px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Apple store"/>
+                  <img :draggable="false" :src="appleStoreImg" width="150" height="43" class="object-contain w-[111px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Apple store"/>
                 </a>
                 <a :href="texts.links.app_links.google_store">
-                  <img :draggable="false" :src="googleStoreImg" class="object-contain w-[111px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Google store"/>
+                  <img :draggable="false" :src="googleStoreImg" width="150" height="43" class="object-contain w-[111px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Google store"/>
                 </a>
               </div>
           </div>
@@ -228,7 +228,8 @@ export default {
         Object.entries(this.formState || {})?.forEach(([Key, value]) => {
           formData.append(Key, value);
         });
-        formData.append('type', 'web');
+        formData.append('title', '-');
+        formData.append('app', 'web');
         this.isLoading = true;
         axios({
           url: texts.contact_us_request_url,
@@ -238,19 +239,21 @@ export default {
               Accept: "application/json",
               "Content-Type": "application/json"
           },
-        }).then(res => {
-            this.isSubmitted = false;
-            this.isLoading = false;
-            if (res?.status) {
-              this.successMessage = res?.message || "تم استقبال رسالتكم بنجاح. شكرا لتواصلكم معنا";
-              this.errorReceived = "";
-              this.formState.name = "";
-              this.formState.phone = "";
-              this.formState.message = "";
-            } else {
-              this.successMessage = "";
-              this.errorReceived = res.message;
-            }
+        }).then(response => {
+            return response.data;
+          }).then((res) => {
+              this.isSubmitted = false;
+              this.isLoading = false;
+              if (res?.status) {
+                this.successMessage = res?.message || "تم استقبال رسالتكم بنجاح. شكرا لتواصلكم معنا";
+                this.errorReceived = "";
+                this.formState.name = "";
+                this.formState.phone = "";
+                this.formState.message = "";
+              } else {
+                this.successMessage = "";
+                this.errorReceived = res.message;
+              }
           })
           .catch(err => {
             this.errorReceived = err.message || 'حدث خطأ ما اثناء ارسال الرسالة. من فضلك عاود المحاولة لاحقا.';

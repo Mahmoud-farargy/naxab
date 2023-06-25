@@ -5,7 +5,7 @@
             {{ index +1 }}
         </span>
     </div>
-    <img :style="{flex: ''}" :draggable="false" :src="item.image" class="object-contain select-none min-w-[210px] h-[216px] sm:h-[224px] w-full" alt=""/>
+    <img :style="{flex: ''}" :draggable="false" loading="lazy" :src="item.image" class="object-contain select-none min-w-[210px] h-[216px] sm:h-[224px] w-full" width="282" height="224" alt=""/>
     <div v-if="item.title" class="text-[#92278F] text-center mt-2">
         <strong>{{ item.title }}</strong>
     </div>
