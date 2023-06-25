@@ -19,5 +19,6 @@
 - change some images that has the old logo with the new one
 - make the mobile image larger a bit
 # Changes in [1.0.4] (2023-06-25)
+- replace the site's thumbnail image with a new one
 - accelerate website's performance and load-time significantly on desktop and mobile by applying all the roles provided by Lighthouse
 - make the contact us form workable by adding a URL to the request and changing the keys to match the received data
