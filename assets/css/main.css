@@ -162,7 +162,7 @@ body {
   }
 
   .nav-item-button.active-view.active-view{
-    border-right-color: #92278F;
+    border-left-color: #92278F;
     color: #fff;
     font-weight: bold;
   }
@@ -205,16 +205,28 @@ body {
 .fade-loader-leave-active{
   animation: fadeIn 0.9s reverse backwards ease;
 }
+
 .mobile-slider-enter-active {
-	animation: slide-in 0.3s;
+	animation: slide-left 0.3s;
 }
 .mobile-slider-leave-active {
-	animation: slide-in 0.3s reverse ease;
+	animation: slide-left 0.3s reverse ease;
 }
 
-@keyframes slide-in {
+@keyframes slide-right {
 	0% {
 	  transform: translate3d(-100%, 0px, 0px);
+	  opacity: 0;
+	}
+	100% {
+	  transform: translate3d(0, 0px, 0px);;
+	  opacity: 1;
+	}
+}
+
+@keyframes slide-left {
+	0% {
+	  transform: translate3d(100%, 0px, 0px);
 	  opacity: 0;
 	}
 	100% {
@@ -232,4 +244,26 @@ body {
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateY(-3%);
   opacity: 0;
+}
+
+/* RTL STYLING */
+
+html.rtl .mobile-slider-enter-active {
+	animation: slide-right 0.3s;
+}
+html.rtl .mobile-slider-leave-active {
+	animation: slide-right 0.3s reverse ease;
+}
+html.rtl .nav-item-button{
+  border-right-width: 2px;
+  border-left-width: 0;
+}
+html.rtl .features__slides .facts-list li::before{
+  margin-right: -1em ;
+  margin-left: 0 !important;
+}
+@media only screen and (max-width: 819px) {
+  html.rtl .nav-item-button.active-view.active-view{
+    border-right-color: #92278F;
+  }
 }

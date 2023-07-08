@@ -6,10 +6,12 @@
         </span>
     </div>
     <img :style="{flex: ''}" :draggable="false" loading="lazy" :src="item.image" class="object-contain select-none min-w-[210px] h-[216px] sm:h-[224px] w-full" width="282" height="224" alt=""/>
-    <div v-if="item.title" class="text-[#92278F] text-center mt-2">
-        <strong>{{ item.title }}</strong>
+    <div v-if="item.titleTranslationId && $t(`${item.titleTranslationId}`)" class="text-[#92278F] text-center mt-2">
+        <strong>{{ $t(`${item.titleTranslationId}`) }}</strong>
     </div>
-    <p v-html="item.description" class="text-[16px] text-center sm:text-[#484848] md:text-[18px] 2xl:text-[19px] font-normal mt-6 md:mt-4"/>
+    <p class="text-[16px] text-center sm:text-[#484848] md:text-[18px] 2xl:text-[19px] font-normal mt-6 md:mt-4">
+        {{ $t(`${item.descriptionTranslationId}`) }}
+    </p>
   </li>
 </template>
 

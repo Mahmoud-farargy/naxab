@@ -1,3 +1,4 @@
+
 const baseURLAPI = "https://naxab.net/api";
 const texts = {
   seo: {
@@ -5,12 +6,9 @@ const texts = {
     title: "Naxab - نكسب",
     website_url: "naxab.net",
     website_image: "../assets/imgs/site_img.jpg",
-    keywords: "اكسب مكافئات، جمع نقاط، اكسب عملاء جدد، تطبيق نكسب، نقاط الولاء، نقاط الكاش باك"
-  },
-  tabs_names: {
-    //  اسماء التابات
-    first_tab: "نكسب للعملاء",
-    second_tab: "نكسب للمتاجر"
+    keywords: "Earn rewards, collect points, win new customers, earn rewards, loyalty points, cash back points, اكسب مكافئات، جمع نقاط، اكسب عملاء جدد، تطبيق نكسب، نقاط الولاء، نقاط الكاش باك",
+    seller_tab_description:  "The first application that enables your customers to benefit from the offers and discounts that you offer them and convert them into points and rewards that you give them to enhance their loyalty to your brand | التطبيق الاول الذي يمكن عـــــمــــلائـــــك من الاسـتـفــــادة من العروض والـخــصــــومـــات التي تقدمها لهم وتحويلها إلى نـقـــــاط ومكافئات تمنحها لهم لتعزيز ولائهم لعلامتك التجارية",
+    customer_tab_description: "The first application that enables you to benefit from offers and discounts offered by stores and brands | التطبيق الاول الذي يمكنك من الاستفادة من العروض والخصومات المقدمة من المتاجر والعلامات التجارية",
   },
   sellers: {
     // الجزء الخاص بالمتاجر
@@ -19,119 +17,89 @@ const texts = {
       link1: {
         sectionHash: "index",
         path: "/",
-        title: "الرئيسية"
+        translationId: "menu"
       },
       link2: {
         sectionHash: "about_naxab",
         path: "/",
-        title: "تعرف علي نكسب"
+        translationId: "about_naxab"
       },
       link3: {
         sectionHash: "get_points",
         path: "/",
-        title: "امنح عملائك نقاط نكسب"
+        translationId: "give_your_clients_points"
       },
       link4: {
         sectionHash: "stats",
         path: "/",
-        title: "نسب وإحصائيات"
+        translationId: "stats"
       },
       link5: {
         sectionHash: "features",
         path: "/",
-        title: "أهم المزايا"
+        translationId: "features"
       },
       link6: {
         sectionHash: "contact_us",
         path: "/",
-        title: "تواصل معنا"
-      }
-    },
-    head_titles: {
-      // عدل هنا عناوين اقسام تابة المتاجر
-      first: {
-        text: "تعرف على",
-        highlight: "نكسب"
-      },
-      second: {
-        text: "امنح عملائك",
-        highlight: "النقاط"
-      },
-      third: {
-        text: "نسب",
-        highlight: "وإحصائيات"
-      },
-      fourth: {
-        text: "اهم",
-        highlight: "المزايا"
-      },
-      fifth: {
-        text: "تواصل",
-        highlight: "معنا"
-      },
-      sixth: {
-        text: "تابعنا",
-        highlight: "على"
+        translationId: "contact_us"
       }
     },
     about: {
       // حط هنا لينك الفيديو في قسم تعرف علي نكسب والصورة هتتبدل بالفيديو لوحدها
       video_url: "",
-      description: `لديك عملاء بالفعل يترددون على متجرك باستمرار ويفضلون شراء بضاعتك ومنتجاتك ، فلم لا تكافئهم على تكرار عمليات الشراء هذه وتحفزهم وتشجعهم على ذلك أكثر فأكثر من خلال منحهم نقاط نكسب ، إما نقاط ( كاش باك ) ، أو نقاط ( الولاء ) ليزداد ولائهم لمتجرك وارتباطهم به .
+      // عدل الوصف هنا مش من ملفات الترجمة عشان النص يحتفط بعدد السطور
+      description_ar: `لديك عملاء بالفعل يترددون على متجرك باستمرار ويفضلون شراء بضاعتك ومنتجاتك ، فلم لا تكافئهم على تكرار عمليات الشراء هذه وتحفزهم وتشجعهم على ذلك أكثر فأكثر من خلال منحهم نقاط نكسب ، إما نقاط ( كاش باك ) ، أو نقاط ( الولاء ) ليزداد ولائهم لمتجرك وارتباطهم به .
       عزز ولاء عملائك الحاليين وقوي علاقتهم بعلامتك التجارية .
       وكذلك قم بجذب عملاء جدد من خلال العروض والخصومات التي تقدمها داخل التطبيق وتحويلها إلى نقاط ومكافئات عينية يمكن لعملائك وزبائنك صرفها والاستفادة منها بعد ذلك .
       تطبيق نكسب المعنى الحقيقي لتطوير برامج الولاء 
                                     تطبيق نكسب .... كله مكسب 
                                 تطبيق نكسب .... هو مكسب حقيقي 
-                                          للعميل ، وللتاجر`
-    },
-    // نصوص الوصف لتابة المتاجر
-    intro_section: {
-      text1: `الذي يمكن عـــــمــــلائـــــك من الاسـتـفــــادة من العروض
-       والـخــصــــومـــات التي تقدمها لهم وتحويلها إلى نـقـــــاط ومكافئات تمنحها لهم لتعزيز ولائهم لعلامتك التجارية`,
-      text2: "نكسب .. حافظ على عملائك الحاليين",
-      text3: "واكسب عملاء جدد"
+                                          للعميل ، وللتاجر`,
+      description_en: `
+      You already have customers who frequent your store constantly and prefer to buy your goods and products, so why not reward them for repeating these purchases and motivate and encourage them to do so more and more by giving them earning points, either (cashback) points, or (loyalty) points to increase their loyalty to your store and their association with it.
+      Enhance the loyalty of your existing customers and strengthen their relationship with your brand.
+      Also, attract new customers through the offers and discounts that you offer within the application and convert them into points and in-kind rewards that your customers and customers can spend and benefit from after that.
+      An application that earns the true meaning of developing loyalty programs
+                                    We earn.... It's all about earning
+                                Naxab application.... is a real gain
+                                          To the customer, and to the merchant
+      `
     },
     // غير هنا الصورة والوصف و العنوان لكل عنصر في قسم رحلتك مع النقاط. ممكن تضيف او تمسح عناصر لو عايز
     points_illustrations: [
       {
         image: "../assets/imgs/Wallet-rafiki.svg",
-        description: " <br/> نقاط الكاش باك هي الـنــقـــــــــاط التي ســـوف تمنحها للعميل ويكتسبها في محفظته من خلال نسبة الخصم المحددة على الفاتورة ، وتحتسب هذه النسبة من إجمالي قيمة فاتورة مشترياته ويمكن للعميل صرف هذه النقاط بعد ذلك من المتجر الذي منحه النقاط من خلال عمليات الشراء",
-        title: "نقاط (كاش باك)"
+        descriptionTranslationId: "points_seller_description_1",
+        titleTranslationId: "points_seller_title_1",
       },
       {
         image: "../assets/imgs/Appreciation-rafiki.svg",
-        description: "هي النقاط التي سوف يجمعها العميل من كل مرة عملية شــــــراء يجـريـهـــــا من خـلال فـــاتـــــــــورة مشترياته ، وهذه النقاط تكون مـســــاويـــــة لإجمالي قيمة الـفــاتــورة ، ويتم تجميعها حتى يصل العميل إلى حد الـــولاء المطلوب منه ويحصل على مـكـافـئـــة الولاء بعد ذلك",
-        title: "نقاط (الولاء)"
+        descriptionTranslationId: "points_seller_description_2",
+        titleTranslationId: "points_seller_title_2"
       }
     ],
-    // نصوص عناصر النسب واحصاءات
+    // translation keys only عناصر النسب واحصاءات 
     facts_list: [
-      "هل تعلم أن عملائك الحاليين ينفقون من خلال مشترياتهم بمعدل أكثر من ٦٠ ٪ من العملاء الجدد",
-      "هل تعلم أن أكثر من ٨٠ ٪ يؤكدون أن برامج الولاء تجعلهم أكثر رغبة وقابلية لإعادة التعامل وتكراره مع نفس العلامة التجارية ذاتها",
-      "هل تعلم أن تكلفة جذب عميل للمرة الأولى تكلفك من ٥ إلى ٢٠ ضعف ما تنفقه على الحفاظ على العملاء الحاليين",
-      "هل تعلم أن نسبة اقتناع عملائك الحاليين بتجربة منتج جديد من منتجاتك تفوق ال ٥٠ ٪ وهم على استعداد تام للشراء والإنفاق بشكل أكبر بكثير من العملاء الجدد",
-      "هل تعلم أن العروض والخصومات تجذب أكثر من ٧٥ ٪ من المستهلكين عند اختيارهم للعلامة التجارية وعزمهم علي الشراء"
+      "seller_fact_1",
+      "seller_fact_2",
+      "seller_fact_3",
+      "seller_fact_4",
+      "seller_fact_5",
     ],
-    // نصوص الجزء الاسفل لقسم النسب و الاحصاءات
-    joining_invetation: {
-      text1: "لك اغتنم تلك الفرصة ",
-      text2: "وبادر بالانضمام إلى العلامات التجارية وانضم للتطبيق وقم <br/> بتجربة مختلفة وفريدة من نوعها في عالم نقاط وبرامج الولاء",
-      button_text: "انضم الآن وابدأ التجربة"
-    },
     // اهم المزايا - المتاجر
     features: [
-      "واجهة سهلة وجذابة للعميل وللمتجر",
-      "إدراج بيانات متجرك ووسائل التواصل وصور لكل قسم من منتجاتك",
-      "لوحة بيانات وتحليل سلوك العملاء",
-      "إمكانية إضافة أكثر من فرع وتحديد موقعه على الخريطة GPS",
-      "لا يستلزم الربط مع أي نظام آخر",
-      "منح وإضافة النقاط من خلال فاتورة المشتريات",
-      "إمكانية إضافة حسابات موظفين ( مدراء ، كاشير )",
-      "تحكم في نسبة الخصم المناسبة التي تقدمها لعملائك وتغييرها في أي وقت",
-      "تمكين العميل من متابعة نقاط محفظته وكذلك معدل حد الولاء",
-      "اختر مبلغ حد الولاء المطلوب الوصول إليه من تكرار مشتريات عملائك",
-      "سهولة آلية صرف النقاط والمكافئات للعميل"
+      "seller_feature_1",
+      "seller_feature_2",
+      "seller_feature_3",
+      "seller_feature_4",
+      "seller_feature_5",
+      "seller_feature_6",
+      "seller_feature_7",
+      "seller_feature_8",
+      "seller_feature_9",
+      "seller_feature_10",
+      "seller_feature_11",
     ]
   },
   customers: {
@@ -141,72 +109,39 @@ const texts = {
       link1: {
         sectionHash: "index",
         path: "/",
-        title: "الرئيسية"
+        translationId: "menu"
       },
       link2: {
         sectionHash: "about_naxab",
         path: "/",
-        title: "تعرف علي نكسب"
+        translationId: "about_naxab"
       },
       link3: {
         sectionHash: "get_points",
         path: "/",
-        title: "رحلات مع النقاط"
+        translationId: "journeys_of_points"
       },
       link4: {
         sectionHash: "features",
         path: "/",
-        title: "أهم المزايا"
+        translationId: "features"
       },
       link5: {
         sectionHash: "trade_marks",
         path: "/",
-        title: "العلامات التجارية"
+        translationId: "trade_marks"
       },
       link6: {
         sectionHash: "contact_us",
         path: "/",
-        title: "تواصل معنا"
-      }
-    },
-    // نصوص الوصف لتابة العملاء
-    intro_section: {
-      text1: "الذي يمكنك من الاستفادة من العروض والخصومات المقدمة من المتاجر والعلامات التجارية",
-      text2: "وتجميع النقاط .. وكسب المكافئات",
-      text3: ""
-    },
-    // اسماء العناوين
-    head_titles: {
-      _comment: "عدل هنا عناوين اقسام تابة العملاء",
-      first: {
-        text: "تعرف على",
-        highlight: "نكسب"
-      },
-      second: {
-        text: "رحلتك مع",
-        highlight: "النقاط"
-      },
-      third: {
-        text: "أهم",
-        highlight: "المزايا"
-      },
-      fourth: {
-        text: "العلامات",
-        highlight: "التجارية"
-      },
-      fifth: {
-        text: "تواصل",
-        highlight: "معنا"
-      },
-      sixth: {
-        text: "تابعنا",
-        highlight: "على"
+        translationId: "contact_us"
       }
     },
     about: {
       // حط هنا لينك الفيديو في قسم تعرف علي نكسب والصورة هتتبدل بالفيديو لوحدها
       video_url: "",
-      description: `كل واحد منا لا يمكنه الاستغناء عن التسوق وشراء أغراضه ومتطلباته التي يحتاج إليها  من أطعمة ومشروبات وملابس وإكسسوارات وهدايا ومقتنيات .....
+      // عدل الوصف هنا مش من ملفات الترجمة عشان النص يحتفط بعدد السطور
+      description_ar: `كل واحد منا لا يمكنه الاستغناء عن التسوق وشراء أغراضه ومتطلباته التي يحتاج إليها  من أطعمة ومشروبات وملابس وإكسسوارات وهدايا ومقتنيات .....
       وطالما تتسوق باستمرار فلم لا تستفيد من عمليات الشراء العديدة والمتكررة التي تجريها ، بل ويمكنك تحويلها إلى استثمار رابح  وادخار نافع ، يعود عليك بالنفع والكسب بعد ذلك .
       أصبحت الآن تستطيع مع تطبيق نكسب تحقيق ذلك الاستثمار الرابح ، والحصول عليه .
       فتطبيق نكسب هو التطبيق الأول الذي يمكنك من الاستفادة من العروض والخصومات التي تقدمها المتاجر والعلامات التجارية لعملائها .
@@ -221,57 +156,73 @@ const texts = {
                                  تطبيق نكسب .... كله مكسب 
                             تطبيق نكسب .... هو مكسب حقيقي 
                                       للعميل ، والتاجر 
-      سارع في تحميل التطبيق وكن من مستخدميه لتستفيد من أقوى الخصومات والعروض الحصرية المقدمة  من المتاجر والعلامات التجارية ، وقم بجمع النقاط واحصل على المكافآت .`
+      سارع في تحميل التطبيق وكن من مستخدميه لتستفيد من أقوى الخصومات والعروض الحصرية المقدمة  من المتاجر والعلامات التجارية ، وقم بجمع النقاط واحصل على المكافآت .`,
+      description_en: `Each one of us cannot do without shopping and buying his items and requirements that he needs, such as food, drinks, clothes, accessories, gifts and collectibles.....
+      And as long as you are constantly shopping, why not benefit from the many and repeated purchases that you make, and you can even turn them into a profitable investment and useful savings, which will benefit you and gain after that.
+      Now you can, with the application of earnings, achieve that profitable investment, and get it.
+      The Naxab application is the first application that enables you to take advantage of the offers and discounts offered by stores and brands to their customers.
+       So that it combines between stores on the one hand, and customers and customers on the other hand, and coordinates the mechanism for offering discounts and offers offered by those stores in a modern and innovative way to convert them into (Cash Back) points that belong to the customer and are kept in his wallet within the application, so that he can spend these points After that, in purchases from those stores that awarded him points.
+       Or (loyalty points), which are added to increase the loyalty rate, and this rate increases as your purchases increase until you reach the required loyalty limit, which is the amount set by the store to reach it in order to obtain the loyalty reward designated for that.
+       And you can add the points yourself through your purchase invoice, in an easy, simple and convenient way without the intervention of the seller or checking with the cashier.
+      This can be done by clicking on the (add points) button located at the top of the main page of the application, and pointing the mobile camera at the QR code or barcode on the purchase invoice, so the process of adding points is done automatically and immediately.
+      You can also track your wallet points and your loyalty rate from within the application and view them whenever you want with ease.
+      Before the application of earnings, you used to shop in stores and spend your money without benefit or return to you and benefit you.
+      But now, with the Naxab application, you can turn all your purchases into real investment and savings that will bring you profit and benefit.
+      The more you purchase, the higher your points and rewards.
+                                 We earn.... It's all about earning
+                            Naxab application.... is a real gain
+                                      To the customer, and to the merchant
+      Hurry up to download the application and become one of its users to benefit from the strongest discounts and exclusive offers offered by stores and brands, and collect points and get rewards.`
     },
     // غير هنا الصورة والوصف لكل عنصر في قسم رحلتك مع النقاط. ممكن تضيف او تمسح عناصر لو عايز
     points_illustrations: [
       {
         image: "../assets/imgs/Online Groceries-cuate.svg",
-        description: "تصفح أفضل المتاجر والعلامات التجارية داخل تطبيق نكسب",
-        title: ""
+        descriptionTranslationId: "points_customer_description_1",
+        titleTranslationId: "points_customer_title_1"
       },
       {
         image: "../assets/imgs/Thrift shop-rafiki.svg",
-        description: "اذهب للشراء من إحدى هذه المتاجر واحتفظ بفاتورة المشتريات",
-        title: ""
+        descriptionTranslationId: "points_customer_description_2",
+        titleTranslationId: "points_customer_title_2"
       },
       {
         image: "../assets/imgs/QR Code-rafiki_1.svg",
-        description: "افتح تطبيق نكسب وامسح الرمز الموجود على الفاتورة لإضافة النقاط",
-        title: ""
+        descriptionTranslationId: "points_customer_description_3",
+        titleTranslationId: "points_customer_title_3"
       },
       {
         image: "../assets/imgs/QR Code-rafiki_2.svg",
-        description: "تمت إضافة النقاط بنجاح (نقاط كاش باك أو نقاط ولاء)",
-        title: ""
+        descriptionTranslationId: "points_customer_description_4",
+        titleTranslationId: "points_customer_title_4"
       },
       {
         image: "../assets/imgs/Shop giveaway-bro.svg",
-        description: "استبدل نقاط محفظتك أو احصل على مكافئك من المتجر الذى منحك إياها",
-        title: ""
+        descriptionTranslationId: "points_customer_description_5",
+        titleTranslationId: "points_customer_title_5"
       }
     ],
     // عناصر قسم اهم المزايا sliders
     features_slides: [
       {
         image: "../assets/imgs/mobile-1.png",
-        description: "تابع نقاط محفظتك أولا بأول من داخل التطبيق"
+        descriptionTranslationId: "customer_feature_1"
       },
       {
         image: "../assets/imgs/mobile-1.png",
-        description: "تابع نقاط محفظتك أولا بأول من داخل التطبيق"
+        descriptionTranslationId: "customer_feature_2"
       },
       {
         image: "../assets/imgs/mobile-1.png",
-        description: "تابع نقاط محفظتك أولا بأول من داخل التطبيق"
+        descriptionTranslationId: "customer_feature_3"
       },
       {
         image: "../assets/imgs/mobile-1.png",
-        description: "تابع نقاط محفظتك أولا بأول من داخل التطبيق"
+        descriptionTranslationId: "customer_feature_4"
       },
       {
         image: "../assets/imgs/mobile-1.png",
-        description: "تابع نقاط محفظتك أولا بأول من داخل التطبيق"
+        descriptionTranslationId: "customer_feature_5"
       }
     ],
     // حط هنا لينكات وايقونات العلامات التجارية. باردو ممكن تضيف او تمسح عناصر
@@ -294,11 +245,6 @@ const texts = {
       }
     ]
   },
-  call_to_action: {
-    // دا نص قسم الجزء الاصفر
-    text: "استمتع بتجربة فريدة وممتعة في عالم الخصومات والنقاط والمكافئات",
-    highlight: "وقم بتحميل التطبيق"
-  },
   links: {
     // حط لينكات السوشيال ميديا تحت
     socials: {
@@ -312,10 +258,6 @@ const texts = {
       google_store: "#",
       apple_store: "#"
     }
-  },
-  footer_copyright: {
-    // نص الحقوق المحفوظة في زيل الصفحة
-    text: "جميع الحقوق محفوظة"
   },
   // ضيف لينك لزرار انضم الآن وابدأ التجربة
   join_us_button_link: "#",

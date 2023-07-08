@@ -9,10 +9,10 @@
                   <div class="title--divider text-center flex mb-5 md:mb-6 lg:mb-10 px-4">
                     <span :class="`title--divider--start bg-secondary`"></span>
                     <strong
-                      :class="`'text-[#FFFFFF]':'text-[#000000]'} title--divider--middle mx-[1rem] sm:mx-[1.5rem] md:mx-[1.6rem] lg:mx-[1.8rem] 3xl:mx-[3rem] text-[18.5px] md:text-[19px] lg:text-[24px] 3xl:text-[25px] text-bold`"
+                      :class="`'text-[#FFFFFF]':'text-[#000000]'} title--divider--middle ltr:mx-[0.4rem] ltr:sm:mx-[1.5rem] mx-[1rem] sm:mx-[1.5rem] md:mx-[1.6rem] ltr:lg:mx-[1.8rem] lg:mx-[1.8rem] ltr:3xl:mx-[3rem] 3xl:mx-[3rem] text-[18.5px] ltr:md:text-[19px] md:text-[19px] ltr:lg:text-[24px] lg:text-[24px] ltr:3xl:text-[25px] 3xl:text-[25px] text-bold`"
                     >
-                    {{ texts.customers.head_titles.fifth.text }}
-                      <span class="text-secondary">{{texts.customers.head_titles.fifth.highlight}}</span>
+                    {{ $t('head_titles.customers.fifth.text') }}
+                      <span class="text-secondary">{{$t('head_titles.customers.fifth.highlight')}}</span>
                     </strong>
                     <span class="title--divider--end bg-secondary"></span>
                   </div> 
@@ -21,10 +21,10 @@
                   <div class="title--divider text-center flex mb-5 md:mb-6 lg:mb-10 px-4">
                     <span :class="`title--divider--start bg-secondary`"></span>
                     <strong
-                      :class="`'text-[#FFFFFF]':'text-[#000000]'} title--divider--middle mx-[1rem] sm:mx-[1.5rem] md:mx-[1.6rem] lg:mx-[1.8rem] 3xl:mx-[3rem] text-[18.5px] md:text-[19px] lg:text-[24px] 3xl:text-[25px] text-bold`"
+                      :class="`'text-[#FFFFFF]':'text-[#000000]'} title--divider--middle ltr:mx-[0.4rem] ltr:sm:mx-[1.5rem] mx-[1rem] sm:mx-[1.5rem] md:mx-[1.6rem] ltr:lg:mx-[1.8rem] lg:mx-[1.8rem] ltr:3xl:mx-[3rem] 3xl:mx-[3rem] text-[18.5px] ltr:md:text-[19px] md:text-[19px] ltr:lg:text-[24px] lg:text-[24px] ltr:3xl:text-[25px] 3xl:text-[25px] text-bold`"
                     >
-                    {{ texts.sellers.head_titles.fifth.text }}
-                      <span class="text-secondary">{{texts.sellers.head_titles.fifth.highlight}}</span>
+                    {{ $t('head_titles.sellers.fifth.text') }}
+                      <span class="text-secondary">{{$t('head_titles.sellers.fifth.highlight')}}</span>
                     </strong>
                     <span class="title--divider--end bg-secondary"></span>
                   </div> 
@@ -35,38 +35,38 @@
                 <FormInput                    
                         elementType="input"
                         inputType="text"
-                        label="الاسم"
+                        :label="$t('contact_us.name')"
                         v-model="formState.name"
                         :isSubmitted="isSubmitted"
                         :disabled="isLoading"
                         :isInvalid="!isLoading && isSubmitted && v$.formState.name.$invalid"
                         :isRequired="false"
-                        placeholder="أدخل اسمك"
-                        invalidMsg="هذه الخانة مطلوبة" />
+                        :placeholder="$t('contact_us.enter_name')"
+                        :invalidMsg="$t('contact_us.name_invalid')" />
                 <!-- phone input -->
-                <FormInput                    
+                <FormInput
                         elementType="input"
                         inputType="tel"
-                        label="رقم الهاتف"
+                        :label="$t('contact_us.phone_number')"                       
                         v-model="formState.phone"
                         :isSubmitted="isSubmitted"
                         :disabled="isLoading"
                         :isInvalid="!isLoading && isSubmitted && v$.formState.phone.$invalid"
                         :isRequired="false"
                         placeholder="201003211503"
-                        invalidMsg="من فضلك ادخل رقم هاتف صحيحا بارقام انجليزية" />
+                        :invalidMsg="$t('contact_us.phone_invalid')" />
               <!-- message input -->
               <FormInput                    
                         elementType="textarea"
                         inputType=""
-                        label="الرسالة"
+                        :label="$t('contact_us.message')" 
                         v-model="formState.message"
                         :isSubmitted="isSubmitted"
                         :disabled="isLoading"
                         :isInvalid="!isLoading && isSubmitted && v$.formState.message.$invalid"
                         :isRequired="false"
-                        placeholder="اكتب رسالتك"
-                        invalidMsg="هذه الخانة مطلوبة ويجب الا تقل عن ٥ احرف" />
+                        :placeholder="$t('contact_us.write_your_message')"
+                        :invalidMsg="$t('contact_us.message_invalid')" />
                 <!-- backend error -->
                 <div
                   v-show="errorReceived && !successMessage"
@@ -75,7 +75,7 @@
                 >{{ errorReceived }}</div>
               <input
                 type="submit"
-                :value="`${isLoading ? 'جاري التنفيذ...' : 'إرسال'}`"
+                :value="`${isLoading ? $t('contact_us.processing') : $t('contact_us.send')}`"
                 :class="`${isLoading ? 'disabled' : ''} w-full py-3 px-4 active:brightness-125 font-bold cursor-pointer rounded-[10px] text-[16px] lg:text-[17px] 3xl:[19px] text-secondary submit__button`"
               />
               <!-- request succeeded -->
@@ -107,10 +107,10 @@
                   <div class="title--divider text-center flex mb-5 md:mb-6 lg:mb-9 px-4">
                     <span :class="`title--divider--start bg-secondary`"></span>
                     <strong
-                      :class="`'text-[#FFFFFF]':'text-[#000000]'} title--divider--middle mx-[1rem] sm:mx-[1.5rem] md:mx-[1.6rem] lg:mx-[1.8rem] 3xl:mx-[3rem] text-[18.5px] md:text-[19px] lg:text-[24px] 3xl:text-[25px] text-bold`"
+                      :class="`'text-[#FFFFFF]':'text-[#000000]'} title--divider--middle ltr:mx-[0.4rem] ltr:sm:mx-[1.5rem] mx-[1rem] sm:mx-[1.5rem] md:mx-[1.6rem] ltr:lg:mx-[1.8rem] lg:mx-[1.8rem] ltr:3xl:mx-[3rem] 3xl:mx-[3rem] text-[18.5px] ltr:md:text-[19px] md:text-[19px] ltr:lg:text-[24px] lg:text-[24px] ltr:3xl:text-[25px] 3xl:text-[25px] text-bold`"
                     >
-                    {{ texts.customers.head_titles.sixth.text }}
-                      <span class="text-secondary">{{texts.customers.head_titles.sixth.highlight}}</span>
+                    {{ $t('head_titles.customers.sixth.text') }}
+                      <span class="text-secondary">{{$t('head_titles.customers.sixth.highlight')}}</span>
                     </strong>
                     <span class="title--divider--end bg-secondary"></span>
                   </div> 
@@ -119,10 +119,10 @@
                   <div class="title--divider text-center flex mb-5 md:mb-6 lg:mb-9 px-4">
                     <span :class="`title--divider--start bg-secondary`"></span>
                     <strong
-                      :class="`'text-[#FFFFFF]':'text-[#000000]'} title--divider--middle mx-[1rem] sm:mx-[1.5rem] md:mx-[1.6rem] lg:mx-[1.8rem] 3xl:mx-[3rem] text-[18.5px] md:text-[19px] lg:text-[24px] 3xl:text-[25px] text-bold`"
+                      :class="`'text-[#FFFFFF]':'text-[#000000]'} title--divider--middle ltr:mx-[0.4rem] ltr:sm:mx-[1.5rem] mx-[1rem] sm:mx-[1.5rem] md:mx-[1.6rem] ltr:lg:mx-[1.8rem] lg:mx-[1.8rem] ltr:3xl:mx-[3rem] 3xl:mx-[3rem] text-[18.5px] ltr:md:text-[19px] md:text-[19px] ltr:lg:text-[24px] lg:text-[24px] ltr:3xl:text-[25px] 3xl:text-[25px] text-bold`"
                     >
-                    {{ texts.sellers.head_titles.sixth.text }}
-                      <span class="text-secondary">{{texts.sellers.head_titles.sixth.highlight}}</span>
+                    {{ $t('head_titles.sellers.sixth.text') }}
+                      <span class="text-secondary">{{$t('head_titles.sellers.sixth.highlight')}}</span>
                     </strong>
                     <span class="title--divider--end bg-secondary"></span>
                   </div> 
@@ -130,16 +130,16 @@
               <!-- social links -->
               <div class="socials flex items-center gap-4 lg:gap-5 3xl:gap-6 mb-0 md:mb-9">
                   <a :href="texts.links.socials.twitter">
-                    <img :draggable="false" :src="twitterImg" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our twitter page"/>
+                    <img :draggable="false" :src="twitterImg" title="Find us on Twitter" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our twitter page"/>
                   </a>
                   <a :href="texts.links.socials.snapchat">
-                    <img :draggable="false" :src="snapchatImg" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our snapchat page"/>
+                    <img :draggable="false" :src="snapchatImg" title="Find us on Snapchat"  class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our snapchat page"/>
                   </a>
                   <a :href="texts.links.socials.facebook">
-                    <img :draggable="false" :src="facebookImg" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our facebook page"/>
+                    <img :draggable="false" :src="facebookImg" title="Find us on Facebook" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our facebook page"/>
                   </a>
                   <a :href="texts.links.socials.instagram">
-                    <img :draggable="false" :src="instagramImg" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our instagram page"/>
+                    <img :draggable="false" :src="instagramImg" title="Find us on Instagram" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our instagram page"/>
                   </a>
               </div>
               <!-- app store links -->

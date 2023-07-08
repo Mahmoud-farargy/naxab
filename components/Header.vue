@@ -6,7 +6,7 @@
     <div class="md:items-center hidden h-[var(--min-height-header)] md:flex p-2 bg-white w-full">
       <div class="site-container h-full w-full">
         <div class="header__inner h-full gap-2 flex justify-between">
-          <div class="header__logo">
+          <div class="header__logo flex flex-row items-center gap-5">
             <NuxtLink :href="routesNames.homepage.path">
               <img
                 :src="LogoImg"
@@ -18,8 +18,26 @@
               />
             </NuxtLink>
           </div>
+          
             <!-- nav xx -->
-          <Nav :activeLink="global.activeLinkName" :routesNames="routesNames"/>
+          <div class="flex flex-row gap-2">
+            <Nav :activeLink="global.activeLinkName" :routesNames="routesNames"/>
+          </div>
+          <!-- switch to English -->
+          <div v-if="global.isRTL" @click="() => changeLang('en')" class="flex cursor-pointer  flex-row items-center ">
+              <span class="flex flex-row rounded-md hover:bg-gray-200 p-2">
+                <img :src="usFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain ml-1"/>
+                <span class="text-[14px] mb-0 flex flex-row items-center"> English</span>
+              </span>
+
+          </div>
+          <!-- switch to Arabic -->
+          <div v-else class="flex flex-row items-center cursor-pointer" @click="() => changeLang('ar')">
+                <span class="flex flex-row rounded-md hover:bg-gray-200 p-2">
+                  <img :src="saudiFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain mr-2"/>
+                  <span class="text-[15px] mb-2 flex flex-row items-center">عربى</span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -55,32 +73,56 @@
       <!-- menu -->
       <div v-if="isMobileMenuOpen" @click="() => changeMenuState(false)" class="overlay bg-[#000]/40 fade-effect top-[var(--min-height-header)] fixed md:hidden h-[100vh] w-[100vw] z-[5]"/>
       <transition name="mobile-slider">
-        <div v-if="isMobileMenuOpen" class="fixed h-screen w-[80%] left-0 top-[var(--min-height-header)] pb-4 pt-5 px-5 bg-[#343434] z-[10]">
-              <Nav :activeLink="global.activeLinkName" :isMobile="true" :closeMobileBar="() => changeMenuState(false)" :routesNames="routesNames"/> 
-        </div> 
-      </transition>
+        <div v-if="isMobileMenuOpen" :class="`fixed h-screen w-[80%] ${global?.isRTL ? 'left-0' : 'right-0'} top-[var(--min-height-header)] pb-4 pt-5 px-5 bg-[#343434] z-[10]`">
+          <div class="flex flex-col h-full">
+              <Nav :activeLink="global.activeLinkName" class=" flex-1" :isMobile="true" :closeMobileBar="() => changeMenuState(false)" :routesNames="routesNames"/> 
+              <div class="mt-5 mb-16">
+                <!-- switch to English -->
+                <div v-if="global.isRTL" @click="() => {changeLang('en'), changeMenuState(false)}" class="flex cursor-pointer text-white flex-row items-center ">
+                    <span class="flex flex-row rounded-md hover:bg-gray-50 hover:text-black p-2">
+                      <img :src="usFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain ml-1"/>
+                      <span class="text-[14px] mb-0 flex flex-row items-center"> English</span>
+                    </span>
+                </div>
+                <!-- switch to Arabic -->
+                <div v-else class="flex flex-row items-center cursor-pointer text-white" @click="() => {changeLang('ar'); changeMenuState(false)}">
+                      <span class="flex flex-row rounded-md hover:bg-gray-50 hover:text-black p-2">
+                        <img :src="saudiFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain mr-2"/>
+                        <span class="text-[15px] mb-2 flex flex-row items-center">عربى</span>
+                  </span>
+                </div>  
+              </div>
+          </div>
 
+
+        </div>
+      </transition>
     </div>
   </header>
 </template>
 
 <script >
-import { routesNames } from "@/helpers";
+import { routesNames, useLocalStorage, lowerString } from "@/helpers";
 import LogoImg from "@/assets/imgs/logo.png";
+import saudiFlagImg from "@/assets/imgs/saudi_flag.png";
+import usFlagImg from "@/assets/imgs/us_flag.png";
 import { useGlobalStore } from "~/store/Modules/global";
 import Nav from "./Nav.vue";
+
 export default {
     data: () => {
         return {
             routesNames,
             LogoImg,
+            saudiFlagImg,
+            usFlagImg,
             isMobileMenuOpen: false
         };
     },
     setup() {
         const global = useGlobalStore();
         return {
-            global
+            global,
         };
     },
     components: { Nav },
@@ -99,6 +141,9 @@ export default {
     methods: {
       changeMenuState(newState){
         this.isMobileMenuOpen = typeof newState === "boolean" ? newState : !this.isMobileMenuOpen;
+      },
+      changeLang(newVal) {
+        useLocalStorage({type: 'set', key: 'lang', value: lowerString(newVal)});
       }
     }
 };

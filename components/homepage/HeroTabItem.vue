@@ -1,5 +1,5 @@
 <template>
-    <li ref="LiElement" @click="updateTab(tabId)" :class="`hero-tab-item ${isActive ? 'active-tab' : ''}`">{{ tabName }}</li>
+    <li ref="LiElement" @click="updateTab(tabId)" :class="`hero-tab-item capitalize ${isActive ? 'active-tab' : ''}`">{{ tabName }}</li>
 </template>
 
 <script>

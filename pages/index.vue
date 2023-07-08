@@ -2,7 +2,7 @@
   <!-- HOME PAGE -->
   <Page
     :title="texts && texts.seo && texts.seo.title"
-    :description="global?.currentTab === 'customers' ? trimText(` التطيبق الذي ${texts.customers.intro_section.text1}`, 155) : trimText(` التطيبق الذي ${texts.sellers.intro_section.text1}`, 155)"
+    :description="global?.currentTab === 'customers' ? trimText(texts.seo.customer_tab_description, 165) : trimText(texts.seo.seller_tab_description, 165)"
   >
     <!-- intro section -->
     <Hero />
@@ -73,7 +73,7 @@ export default {
     });
     return {
       global,
-      route
+      route,
     };
   },
   data(){

@@ -10,7 +10,9 @@
     <div
       class="hero__inner flex flex-col items-center text-center justify-center mx-auto w-full h-full"
     >
-      <div class="px-1 max-w-[89%] mx-auto sm:px-10 lg:px-11 sm:max-w-[550px] min-h-[480px]">
+      <div
+        class="px-1 ltr:max-w-[100%] max-w-[89%] mx-auto sm:px-10 lg:px-11 ltr:sm:max-w-[550px] sm:max-w-[550px] min-h-[480px]"
+      >
         <!-- tabs -->
         <div class="relative w-full">
           <ul
@@ -21,13 +23,13 @@
               tabId="customers"
               :isActive="global.currentTab === 'customers'"
               :updateTab="updateTab"
-              :tabName="texts.tabs_names.first_tab"
+              :tabName="$t('hero.tabs_names.first_tab')"
             />
             <HeroTabItem
               tabId="sellers"
               :isActive="global.currentTab === 'sellers'"
               :updateTab="updateTab"
-              :tabName="texts.tabs_names.second_tab"
+              :tabName="$t('hero.tabs_names.second_tab')"
             />
           </ul>
         </div>
@@ -36,20 +38,20 @@
           class="text-white text-[17px] sm:text-[19px] md:text-[21px] lg:text-[20px] xl:text-[21px] 3xl:text-[23px]"
         >
           <h1
-            class="font-bold mt-10 md:mt-12 mb-2.5 animate__animated animate__bounce animate__delay-0.8s"
+            class="font-bold mt-10 md:mt-12 mb-2.5 animate__animated animate__bounce animate__delay-2s"
           >
-            التطبيق الأول
+            {{ $t("hero.title") }}
           </h1>
 
           <Transition name="tab-content" mode="out-in">
             <!-- text for customers -->
             <div v-if="global.currentTab === 'customers'">
               <p
-                v-html="texts.customers.intro_section.text1"
+                v-html="$t('hero.customers.text1')"
                 class="font-normal mt-1"
               />
               <p
-                v-html="texts.customers.intro_section.text2"
+                v-html="$t('hero.customers.text2')"
                 class="text-secondary mt-6"
               />
               <!-- customers' container-->
@@ -78,16 +80,16 @@
             <!-- text for sellers -->
             <div v-else>
               <p
-                v-html="texts.sellers.intro_section.text1"
-                class="font-normal md:font-bold"
+                v-html="$t('hero.sellers.text1')"
+                :class="`font-normal ${global?.isRTL ? 'md:font-bold' : ''}`"
               />
               <p
-                v-html="texts.sellers.intro_section.text2"
+                v-html="$t('hero.sellers.text2')"
                 class="text-secondary mt-6"
               />
-              <!-- resellers' container-->
+              <!-- sellers' container-->
               <div>
-                <p v-html="texts.sellers.intro_section.text3" />
+                <p v-html="$t('hero.sellers.text3')" />
               </div>
             </div>
           </Transition>
@@ -129,8 +131,8 @@
         class="object-contain px-2 min-w-[180px] w-[270px] sm:w-[280px] md:w-[390px] lg:w-[449px] xl:w-[510px] h-auto"
         :alt="
           global.currentTab === 'customers'
-            ? trimText(texts.customers.intro_section.text1, 155)
-            : trimText(texts.sellers.intro_section.text1, 155)
+            ? trimText($t('hero.customers.text1'), 155)
+            : trimText($t('hero.sellers.text1'), 155)
         "
         width="510"
         height="321"
@@ -174,7 +176,10 @@ export default {
   methods: {
     trimText,
     updateTab(tabId) {
-      this.$router.push(`/?tab=${tabId}`);
+      this.$router.replace({
+        path: "/",
+        query: { ...this.route.query, tab: tabId },
+      });
     },
   },
   watch: {

@@ -1,11 +1,11 @@
 <template>
 
-    <div class="swiper-holder w-[75%] features__slider m-auto relative xl:w-[65%] 2xl:w-[55%]">
+    <div class="swiper-holder w-[75%] ltr features__slider m-auto relative xl:w-[65%] 2xl:w-[55%]">
       <button
         ref="leftArrow"
         id="go-right"
         class="prev-nav-button absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] right-[-8%] sm:right-[-2%] md:right-[2%] lg:right-[5%] xl:right-[10%]"
-        @click="goRight"
+        @click="goLeft"
         aria-label="Go right"
         aria-labelledby="Go right"
       >
@@ -50,14 +50,14 @@
             </div>
             <p
               class="text-[19px] md:text-[22px] text-center font-normal text-white mt-2 sm:mt-4"
-            >{{ featureSlide.description }}</p>
+            >{{ $t(featureSlide.descriptionTranslationId) }}</p>
           </div>
         </swiper-slide>
       </swiper>
       <button ref="rightArrow"        
         aria-label="Go left"
         aria-labelledby="Go left"
-        id="go-left" class="absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] left-[-8%] sm:left-[-2%] md:left-[2%] lg:left-[5%] xl:left-[10%]" @click="goLeft">
+        id="go-left" class="absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] left-[-8%] sm:left-[-2%] md:left-[2%] lg:left-[5%] xl:left-[10%]" @click="goRight">
         <img
           class="w-[22px] md:w-[27px] lg:w-[31px] opacity-80 hover:opacity-100 ease-linear duration-150"
           src="../../assets/imgs/left-arrow.svg"
@@ -76,17 +76,20 @@ const props = defineProps({
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Navigation, Pagination, A11y, Virtual } from "swiper";
 import "swiper/css";
+import { useGlobalStore } from "~/store/Modules/global";
 
 const img = "/assets/imgs/placeholder.jpg";
-const router = useRouter();
 const leftArrow = ref(null);
 const rightArrow = ref(null);
-
+const global = useGlobalStore();
+const isRTL = global?.isRTL;
 // Functions
 const handleArrows = () => {
-  if (router.currentRoute.value.fullPath == "/") {
     const to_right = document.getElementById("go-right");
     const to_left = document.getElementById("go-left");
+    if(!to_left || !to_right){
+      return;
+    }
     to_right.style.display = "none";
     to_left.style.display = "none";
     if (
@@ -105,41 +108,39 @@ const handleArrows = () => {
       to_right.style.display = "inline-block";
       to_left.style.display = "inline-block";
     }
-  }
 };
 
 const onActiveIndexChange = event => {
-  const { rtl, isEnd, isBeginning } = event;
+  const { isEnd, isBeginning } = event;
 
   if (isBeginning) {
-    if (rtl) {
-      leftArrow.value.classList.add("disabled");
-      rightArrow.value.classList.remove("disabled");
-    } else {
+    if (isRTL) {
       rightArrow.value.classList.add("disabled");
       leftArrow.value.classList.remove("disabled");
+    } else {     
+      leftArrow.value.classList.add("disabled");
+      rightArrow.value.classList.remove("disabled");
     }
     return;
   } else if (isEnd) {
-    if (rtl) {
-      rightArrow.value.classList.add("disabled");
-      leftArrow.value.classList.remove("disabled");
-    } else {
+    if (isRTL) {
       leftArrow.value.classList.add("disabled");
       rightArrow.value.classList.remove("disabled");
+    } else {     
+      rightArrow.value.classList.add("disabled");
+      leftArrow.value.classList.remove("disabled");
     }
     return;
-  }
+  }   
   rightArrow.value.classList.remove("disabled");
   leftArrow.value.classList.remove("disabled");
 };
 
 const onSwiperInit = event => {
-  const { rtl } = event;
-  if (rtl) {
-    leftArrow.value.classList.add("disabled");
-  } else {
+  if (isRTL) {
     rightArrow.value.classList.add("disabled");
+  } else {
+    leftArrow.value.classList.add("disabled");
   }
 };
 // to replace img when it has an error
@@ -169,6 +170,10 @@ onMounted(() => {
 </script>
     
     <style>
+  .features__slider.ltr{
+	direction: ltr;
+	text-align: left;
+}
 .features__slider h3::after {
   content: "";
   position: absolute;

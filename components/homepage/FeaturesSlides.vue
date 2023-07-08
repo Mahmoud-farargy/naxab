@@ -3,20 +3,24 @@
    
     <div>
       <!-- title -->
-      <SectionTitle v-if="global.currentTab === 'customers'"  :inverted="true" :text="texts.customers.head_titles.third.text" :highlighted="texts.customers.head_titles.third.highlight"/>
-      <SectionTitle v-else-if="global.currentTab === 'sellers'" :inverted="true" :text="texts.sellers.head_titles.third.text" :highlighted="texts.sellers.head_titles.third.highlight"/>
+      <SectionTitle v-if="global.currentTab === 'customers'"  :inverted="true" :text="$t('head_titles.customers.third.text')" :highlighted="$t('head_titles.customers.third.highlight')"/>
+      <SectionTitle v-else-if="global.currentTab === 'sellers'" :inverted="true" :text="$t('head_titles.sellers.third.text')" :highlighted="$t('head_titles.sellers.third.highlight')"/>
       <!-- FOR CUSTOMERS -->
       <!-- slides -->
       <Slider v-if="global.currentTab === 'customers'" :featuresList="texts.customers.features_slides"/>
       <div v-else-if="global.currentTab === 'sellers'" class="inner-container">
         <ul class="list-none grid grid-cols-1 md:grid-cols-2 gap-y-1 md:gap-y-0 gap-x-12 facts-list mt-2 sm:mt-8 md:mt-12">
-          <li v-for="(factItem, index) in texts.sellers.facts_list" class="text-white font-normal text-[16px] md:text-[18px] lg:text-[19px]" :key="index" v-html="factItem" />
+          <li v-for="(factItem, index) in texts.sellers.facts_list" class="text-white font-normal text-[16px] md:text-[18px] lg:text-[19px]" :key="index" >
+            {{ $t(`${factItem}`) }}
+          </li>
         </ul>
         <div class="flex flex-col max-w-[620px] m-auto items-center w-full text-[16px] sm:text-[18px] md:text-[19px] mt-8 md:mt-7 lg:mt-10">
-          <strong class="text-secondary font-bold">{{texts.sellers.joining_invetation.text1}}</strong>
-          <div class="text-white font-normal" v-html="texts.sellers.joining_invetation.text2"/>
+          <strong class="text-secondary font-bold">{{ $t('joining_invetation_seller_text_1')}}</strong>
+          <div class="text-white font-normal">
+            {{ $t('joining_invetation_seller_text_2')}}
+          </div>
           <a :href="texts.join_us_button_link" class="bg-secondary decoration-none hover:brightness-125 ease-linear duration-150  mt-8 mb-3 text-[#92278F] font-bold cursor-pointer px-5 py-1.5 md:px-6 md:py-1.5 xl:px-8 xl:py-2 text-center rounded-[12px] text-[17.5px] md:text-[18.5px] lg:text-[19.5px]">
-            {{ texts.sellers.joining_invetation.button_text }}
+            {{ $t('joining_invetation_seller_button_1') }}
           </a>
         </div>
       </div>
@@ -60,7 +64,7 @@ export default {
           display: inline-block;
           width: 27px; 
           height: 27px;
-          margin-right: -1em;
+          margin-left: -1em;
           font-size: 2.2rem;
           @media only screen and (max-width: 819px){
             margin-right: 0;

@@ -3,8 +3,8 @@
 
     <div>   
       <!-- title -->
-      <SectionTitle v-if="global.currentTab === 'customers'" :text="texts.customers.head_titles.first.text" :highlighted="texts.customers.head_titles.first.highlight"/>
-      <SectionTitle v-else-if="global.currentTab === 'sellers'" :text="texts.sellers.head_titles.first.text" :highlighted="texts.sellers.head_titles.first.highlight"/>
+      <SectionTitle v-if="global.currentTab === 'customers'" :text="$t('head_titles.customers.first.text')" :highlighted="$t('head_titles.customers.first.highlight')"/>
+      <SectionTitle v-else-if="global.currentTab === 'sellers'" :text="$t('head_titles.sellers.first.text')" :highlighted="$t('head_titles.sellers.first.highlight')"/>
       
       <div class="inner-container mt-2 sm:mt-7 md:mt-8 lg:mt-12">
         <!-- FOR CUSTOMERS -->
@@ -18,9 +18,9 @@
             <!-- description -->
             <div class="text-[16px] sm:text-[18px] lg:text-[19px] 3xl:text-[22px] font-normal text-[#484848] mt-5">
               <!-- shows full description -->
-              <div v-if="isFullDescriptionShown" class="whitespace-pre-line break-words" v-html="texts.customers.about.description"/>
+              <div v-if="isFullDescriptionShown" class="whitespace-pre-line break-words" v-html="global.localStorageCopy?.lang === 'ar' ? texts.customers.about.description_ar : texts.customers.about.description_en"/>
               <!-- shows a snippet of the description -->
-              <div v-else v-html="trimText(texts.customers.about.description, descriptionCharactersLimit)"/>
+              <div v-else v-html="trimText(global.localStorageCopy?.lang === 'ar' ? texts.customers.about.description_ar : texts.customers.about.description_en , descriptionCharactersLimit)"/>
             </div>
         </div>
         <!-- FOR SELLERS -->
@@ -34,16 +34,16 @@
             <!-- description -->
             <div  class="text-[16px] sm:text-[18px] lg:text-[19px] 3xl:text-[22px] font-normal text-[#484848] mt-5">
               <!-- shows full description -->
-              <div v-if="isFullDescriptionShown" class="whitespace-pre-line break-words" v-html="texts.sellers.about.description"/>
+              <div v-if="isFullDescriptionShown" class="whitespace-pre-line break-words" v-html="global.localStorageCopy?.lang === 'ar' ? texts.sellers.about.description_ar : texts.sellers.about.description_en"/>
               <!-- shows a snippet of the description -->
-              <div  v-else v-html="trimText(texts.sellers.about.description, descriptionCharactersLimit)"/>
+              <div  v-else v-html="trimText(global.localStorageCopy?.lang === 'ar' ? texts.sellers.about.description_ar : texts.sellers.about.description_en , descriptionCharactersLimit)"/>
             </div>
         </div>
         <!-- toggles description length visibility -->
-        <div v-if="(global.currentTab === 'customers' ? parseInt(texts.customers.about.description.length) : parseInt(texts.sellers.about.description.length)) > descriptionCharactersLimit" class="flex items-center justify-end mt-4 sm:mt-6 md:mt-7">
+        <div v-if="(global.currentTab === 'customers' ? parseInt(`${global.localStorageCopy?.lang === 'ar'  ? texts.customers.about.description_ar?.length : texts.customers.about.description_en?.length}`) : parseInt( global.localStorageCopy?.lang === 'ar'  ? texts.sellers.about.description_ar?.length : texts.sellers.about.description_en?.length)) > descriptionCharactersLimit" class="flex items-center justify-end mt-4 sm:mt-6 md:mt-7">
           <button @click="() => isFullDescriptionShown = !isFullDescriptionShown" class="hightlighted__button primary__button flex items-center gap-2 active:brightness-150">
-            <span v-if="!isFullDescriptionShown">المزيد</span>
-            <span v-else>أقل</span>
+            <span v-if="!isFullDescriptionShown">{{ $t("more")}}</span>
+            <span v-else>{{ $t("less")}}</span>
             <svg :style="{transform: isFullDescriptionShown ? 'rotate(180deg)' : 'rotate(0)'}" class="ease-linear duration-100" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="m216.49 104.49l-80 80a12 12 0 0 1-17 0l-80-80a12 12 0 0 1 17-17L128 159l71.51-71.52a12 12 0 0 1 17 17Z"/></svg>
           </button>
         </div>
