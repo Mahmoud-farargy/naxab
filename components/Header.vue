@@ -26,7 +26,7 @@
           <!-- switch to English -->
           <div v-if="global.isRTL" @click="() => changeLang('en')" class="flex cursor-pointer  flex-row items-center ">
               <span class="flex flex-row rounded-md hover:bg-gray-200 p-2">
-                <img :src="usFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain ml-1"/>
+                <!-- <img :src="usFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain ml-1"/> -->
                 <span class="text-[14px] mb-0 flex flex-row items-center"> English</span>
               </span>
 
@@ -34,7 +34,7 @@
           <!-- switch to Arabic -->
           <div v-else class="flex flex-row items-center cursor-pointer" @click="() => changeLang('ar')">
                 <span class="flex flex-row rounded-md hover:bg-gray-200 p-2">
-                  <img :src="saudiFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain mr-2"/>
+                  <!-- <img :src="saudiFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain mr-2"/> -->
                   <span class="text-[15px] mb-2 flex flex-row items-center">عربى</span>
             </span>
           </div>
@@ -80,14 +80,14 @@
                 <!-- switch to English -->
                 <div v-if="global.isRTL" @click="() => {changeLang('en'), changeMenuState(false)}" class="flex cursor-pointer text-white flex-row items-center ">
                     <span class="flex flex-row rounded-md hover:bg-gray-50 hover:text-black p-2">
-                      <img :src="usFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain ml-1"/>
+                      <!-- <img :src="usFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain ml-1"/> -->
                       <span class="text-[14px] mb-0 flex flex-row items-center"> English</span>
                     </span>
                 </div>
                 <!-- switch to Arabic -->
                 <div v-else class="flex flex-row items-center cursor-pointer text-white" @click="() => {changeLang('ar'); changeMenuState(false)}">
                       <span class="flex flex-row rounded-md hover:bg-gray-50 hover:text-black p-2">
-                        <img :src="saudiFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain mr-2"/>
+                        <!-- <img :src="saudiFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain mr-2"/> -->
                         <span class="text-[15px] mb-2 flex flex-row items-center">عربى</span>
                   </span>
                 </div>  
@@ -104,8 +104,8 @@
 <script >
 import { routesNames, useLocalStorage, lowerString } from "@/helpers";
 import LogoImg from "@/assets/imgs/logo.png";
-import saudiFlagImg from "@/assets/imgs/saudi_flag.png";
-import usFlagImg from "@/assets/imgs/us_flag.png";
+// import saudiFlagImg from "@/assets/imgs/saudi_flag.png";
+// import usFlagImg from "@/assets/imgs/us_flag.png";
 import { useGlobalStore } from "~/store/Modules/global";
 import Nav from "./Nav.vue";
 
@@ -114,8 +114,6 @@ export default {
         return {
             routesNames,
             LogoImg,
-            saudiFlagImg,
-            usFlagImg,
             isMobileMenuOpen: false
         };
     },
