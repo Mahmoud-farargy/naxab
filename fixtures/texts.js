@@ -255,8 +255,8 @@ const texts = {
     },
     // لينكات البرنامج علي جوجل ستور وابل ستور
     app_links: {
-      google_store: "#",
-      apple_store: "#"
+      google_store: "https://naxab.app.link/playStore",
+      apple_store: "https://naxab.app.link/appStore"
     }
   },
   // ضيف لينك لزرار انضم الآن وابدأ التجربة
