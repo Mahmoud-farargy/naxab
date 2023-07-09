@@ -231,13 +231,15 @@ export default {
         formData.append('title', '-');
         formData.append('app', 'web');
         this.isLoading = true;
+        this.successMessage = "";
         axios({
           url: texts.contact_us_request_url,
           method: 'POST',
           data: formData,
           headers: {
               Accept: "application/json",
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
+              "Accept-Language": this.global?.localStorageCopy?.lang || 'ar'
           },
         }).then(response => {
             return response.data;
