@@ -10,8 +10,12 @@ const texts = {
     seller_tab_description:  "The first application that enables your customers to benefit from the offers and discounts that you offer them and convert them into points and rewards that you give them to enhance their loyalty to your brand | التطبيق الاول الذي يمكن عـــــمــــلائـــــك من الاسـتـفــــادة من العروض والـخــصــــومـــات التي تقدمها لهم وتحويلها إلى نـقـــــاط ومكافئات تمنحها لهم لتعزيز ولائهم لعلامتك التجارية",
     customer_tab_description: "The first application that enables you to benefit from offers and discounts offered by stores and brands | التطبيق الاول الذي يمكنك من الاستفادة من العروض والخصومات المقدمة من المتاجر والعلامات التجارية",
   },
-  sellers: {
-    // الجزء الخاص بالمتاجر
+  sellers: {  // ------ الجزء الخاص بالمتاجر ------
+    // لينكات البرنامج علي جوجل ستور وابل ستور
+    app_links: {
+      google_store: "https://naxab.app.link/playStore",
+      apple_store: "https://naxab.app.link/appStore"
+    },
     // navbar menuهنا حط اسماء وروابط اللينكات اللي بتظهر فوق في ال 
     navLinks: {
       link1: {
@@ -48,7 +52,7 @@ const texts = {
     about: {
       // حط هنا لينك الفيديو في قسم تعرف علي نكسب والصورة هتتبدل بالفيديو لوحدها
       video_url: "",
-      // عدل الوصف هنا مش من ملفات الترجمة عشان النص يحتفط بعدد السطور
+      // عدل الوصف من هنا مش من ملفات الترجمة عشان النص يحتفط بعدد السطور
       description_ar: `لديك عملاء بالفعل يترددون على متجرك باستمرار ويفضلون شراء بضاعتك ومنتجاتك ، فلم لا تكافئهم على تكرار عمليات الشراء هذه وتحفزهم وتشجعهم على ذلك أكثر فأكثر من خلال منحهم نقاط نكسب ، إما نقاط ( كاش باك ) ، أو نقاط ( الولاء ) ليزداد ولائهم لمتجرك وارتباطهم به .
       عزز ولاء عملائك الحاليين وقوي علاقتهم بعلامتك التجارية .
       وكذلك قم بجذب عملاء جدد من خلال العروض والخصومات التي تقدمها داخل التطبيق وتحويلها إلى نقاط ومكافئات عينية يمكن لعملائك وزبائنك صرفها والاستفادة منها بعد ذلك .
@@ -87,7 +91,7 @@ const texts = {
       "seller_fact_4",
       "seller_fact_5",
     ],
-    // اهم المزايا - المتاجر
+    // translation keys only اهم المزايا - المتاجر
     features: [
       "seller_feature_1",
       "seller_feature_2",
@@ -102,8 +106,12 @@ const texts = {
       "seller_feature_11",
     ]
   },
-  customers: {
-    // الجزء الخاص بالعملاء
+  customers: { // ------  الجزء الخاص بالعملاء -------
+    // لينكات البرنامج علي جوجل ستور وابل ستور
+    app_links: {
+      google_store: "https://naxab.app.link/playStore",
+      apple_store: "https://naxab.app.link/appStore"
+    },
     // navbar menuهنا حط اسماء وروابط اللينكات اللي بتظهر فوق في ال
     navLinks: {
       link1: {
@@ -174,7 +182,7 @@ const texts = {
                                       To the customer, and to the merchant
       Hurry up to download the application and become one of its users to benefit from the strongest discounts and exclusive offers offered by stores and brands, and collect points and get rewards.`
     },
-    // غير هنا الصورة والوصف لكل عنصر في قسم رحلتك مع النقاط. ممكن تضيف او تمسح عناصر لو عايز
+    // غير هنا الصورة والوصف لكل عنصر في قسم رحلتك مع النقاط. ممكن هنا تضيف او تمسح عناصر لو عايز
     points_illustrations: [
       {
         image: "../assets/imgs/Online Groceries-cuate.svg",
@@ -202,7 +210,7 @@ const texts = {
         titleTranslationId: "points_customer_title_5"
       }
     ],
-    // عناصر قسم اهم المزايا sliders
+    // عناصر قسم اهم المزايا ،ممكن تضيف او تمسح عناصر sliders
     features_slides: [
       {
         image: "../assets/imgs/mobile-1.png",
@@ -253,11 +261,8 @@ const texts = {
       twitter: "#",
       snapchat: "#"
     },
-    // لينكات البرنامج علي جوجل ستور وابل ستور
-    app_links: {
-      google_store: "https://naxab.app.link/playStore",
-      apple_store: "https://naxab.app.link/appStore"
-    }
+    // هنا لينك حط لينك الواتساب
+    whatsappButton: "https://wa.me/201033164201"
   },
   // ضيف لينك لزرار انضم الآن وابدأ التجربة
   join_us_button_link: "#",

@@ -89,6 +89,7 @@
       "message": "Message",
       "write_your_message": "Write us your message",
       "send": "Send",
+      "enter_your_phone": " Enter your phone number",
       "processing": "Processing...",
       "name_invalid": "This field is required",
       "phone_invalid": "Please enter a valid phone number",

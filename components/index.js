@@ -1,5 +1,6 @@
 export { default as Header} from "./Header.vue";
 export { default as Footer} from "./Footer.vue";
+export { default as WhatsAppBtn} from "./WhatsAppBtn.vue";
 export { default as Hero} from "./homepage/Hero.vue";
 export { default as Preloader} from "./Generic/Preloader.vue";
 export { default as About} from "./homepage/About.vue";

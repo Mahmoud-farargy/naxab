@@ -84,6 +84,7 @@
     "contact_us": {
       "name": "الاسم",
       "enter_name": "أدخل اسمك",
+      "enter_your_phone": "ادخل رقم هاتفك",
       "phone_number": "رقم الهاتف",
       "message": "الرسالة",
       "write_your_message": "اكتب رسالتك",

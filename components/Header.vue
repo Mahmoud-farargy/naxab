@@ -71,12 +71,12 @@
         </span>
       </div>
       <!-- menu -->
-      <div v-if="isMobileMenuOpen" @click="() => changeMenuState(false)" class="overlay bg-[#000]/40 fade-effect top-[var(--min-height-header)] fixed md:hidden h-[100vh] w-[100vw] z-[5]"/>
+      <div v-if="isMobileMenuOpen" @click="() => changeMenuState(false)" class="overlay bg-[#000]/40 fade-effect top-[var(--min-height-header)] fixed md:hidden mobile-view w-[100vw] z-[5]"/>
       <transition name="mobile-slider">
-        <div v-if="isMobileMenuOpen" :class="`fixed h-screen w-[80%] ${global?.isRTL ? 'left-0' : 'right-0'} top-[var(--min-height-header)] pb-4 pt-5 px-5 bg-[#343434] z-[10]`">
+        <div v-if="isMobileMenuOpen" :class="`fixed w-[80%] mobile-menu  ${global?.isRTL ? 'left-0' : 'right-0'} top-[var(--min-height-header)] pb-4 pt-5 px-5 bg-[#343434] z-[10]`">
           <div class="flex flex-col h-full">
               <Nav :activeLink="global.activeLinkName" class=" flex-1" :isMobile="true" :closeMobileBar="() => changeMenuState(false)" :routesNames="routesNames"/> 
-              <div class="mt-5 mb-16">
+              <div class="mt-5 mb-0">
                 <!-- switch to English -->
                 <div v-if="global.isRTL" @click="() => {changeLang('en'), changeMenuState(false)}" class="flex cursor-pointer text-white flex-row items-center ">
                     <span class="flex flex-row rounded-md hover:bg-gray-50 hover:text-black p-2">
@@ -147,5 +147,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.mobile-view{
+  height: 100vh;
+  height: 100svh;
+}
+.mobile-menu{
+  height: calc(100% - var(--min-height-header));
+}
 </style>

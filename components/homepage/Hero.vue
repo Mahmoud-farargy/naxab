@@ -97,23 +97,23 @@
           <div
             class="app__links flex items-center justify-center mt-14 flex-wrap gap-2 md:gap-4"
           >
-            <a href="#" target="_blank">
+            <a :href="global.currentTab === 'customers' ? texts.customers.app_links.google_store : texts.sellers.app_links.google_store" rel="noopener noreferrer" target="_blank" title="Download our app from the Google Play now">
               <img
                 :draggable="false"
                 :src="googleStoreImg"
                 width="170"
                 height="47"
-                class="object-contain hover:shadow-md w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] 3xl:w-[200px] h-auto"
-                alt="Google store"
+                class="object-contain zoom-on-hover hover:shadow-md w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] 3xl:w-[200px] h-auto"
+                alt="Google Play"
               />
             </a>
-            <a href="#" target="_blank">
+            <a :href="global.currentTab === 'customers' ? texts.customers.app_links.apple_store : texts.sellers.app_links.apple_store" rel="noopener noreferrer" target="_blank" title="Download our app from the Apple store now">
               <img
                 :draggable="false"
                 :src="appleStoreImg"
                 width="170"
                 height="47"
-                class="object-contain hover:shadow-md w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] 3xl:w-[200px] h-auto"
+                class="object-contain zoom-on-hover hover:shadow-md w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] 3xl:w-[200px] h-auto"
                 alt="Apple store"
               />
             </a>
@@ -216,12 +216,14 @@ export default {
 <style lang="scss" scoped>
 .hero {
   min-height: 78vh;
+  min-height: 78svh;
   background-image: url(../../assets/imgs/hero-bg-desktop.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   @media only screen and (max-width: 680px) {
     min-height: 70vh;
+    min-height: 70svh;
     background-image: url(../../assets/imgs/hero-bg-mobile.svg);
   }
 }

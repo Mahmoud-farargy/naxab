@@ -53,7 +53,7 @@
                         :disabled="isLoading"
                         :isInvalid="!isLoading && isSubmitted && v$.formState.phone.$invalid"
                         :isRequired="false"
-                        placeholder="201003211503"
+                        :placeholder="$t('contact_us.enter_your_phone')"
                         :invalidMsg="$t('contact_us.phone_invalid')" />
               <!-- message input -->
               <FormInput                    
@@ -95,10 +95,10 @@
             </div>
               <!-- app store links on mobile view -->
               <div class="store__links md:hidden flex items-center mb-7 gap-3">
-                <a :href="texts.links.app_links.google_store">
-                  <img :draggable="false" :src="googleStoreImg" width="115" height="32" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Google store"/>
+                <a :href="global.currentTab === 'customers' ? texts.customers.app_links.google_store : texts.sellers.app_links.google_store" rel="noopener noreferrer" target="_blank" title="Download our app from the Google Play now">
+                  <img :draggable="false" :src="googleStoreImg" width="115" height="32" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Google Play"/>
                 </a>
-                <a :href="texts.links.app_links.apple_store">
+                <a :href="global.currentTab === 'customers' ? texts.customers.app_links.apple_store : texts.sellers.app_links.apple_store" rel="noopener noreferrer" target="_blank" title="Download our app from the Apple store now">
                   <img :draggable="false" :src="appleStoreImg" width="115" height="32" class="object-contain w-[115px] sm:w-[121px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Apple store"/>
                 </a>
               </div>
@@ -129,26 +129,20 @@
               </div>
               <!-- social links -->
               <div class="socials flex items-center gap-4 lg:gap-5 3xl:gap-6 mb-0 md:mb-9">
-                  <a :href="texts.links.socials.twitter">
-                    <img :draggable="false" :src="twitterImg" title="Find us on Twitter" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our twitter page"/>
+                  <a :href="texts.links.socials.facebook" rel="noopener noreferrer" target="_blank" title="Find us on Facebook">
+                    <img :draggable="false" :src="facebookImg"  class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our facebook page"/>
                   </a>
-                  <a :href="texts.links.socials.snapchat">
-                    <img :draggable="false" :src="snapchatImg" title="Find us on Snapchat"  class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our snapchat page"/>
-                  </a>
-                  <a :href="texts.links.socials.facebook">
-                    <img :draggable="false" :src="facebookImg" title="Find us on Facebook" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our facebook page"/>
-                  </a>
-                  <a :href="texts.links.socials.instagram">
-                    <img :draggable="false" :src="instagramImg" title="Find us on Instagram" class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our instagram page"/>
+                  <a :href="texts.links.socials.instagram" rel="noopener noreferrer" target="_blank" title="Find us on Instagram">
+                    <img :draggable="false" :src="instagramImg"  class="object-contain w-[38px] h-[38px] lg:w-[40px] lg:h-[40px] hover:translate-y-[-2px] ease-linear duration-150" width="40" height="40" alt="go to our instagram page"/>
                   </a>
               </div>
               <!-- app store links -->
               <div class="store__links hidden md:flex items-center gap-3">
-                <a :href="texts.links.app_links.apple_store">
+                <a :href="global.currentTab === 'customers' ? texts.customers.app_links.google_store : texts.sellers.app_links.google_store" class="zoom-on-hover" rel="noopener noreferrer" target="_blank" title="Download our app from the Apple store now">
                   <img :draggable="false" :src="appleStoreImg" width="150" height="43" class="object-contain w-[111px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Apple store"/>
                 </a>
-                <a :href="texts.links.app_links.google_store">
-                  <img :draggable="false" :src="googleStoreImg" width="150" height="43" class="object-contain w-[111px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Google store"/>
+                <a :href="global.currentTab === 'customers' ? texts.customers.app_links.apple_store : texts.sellers.app_links.apple_store" class="zoom-on-hover" rel="noopener noreferrer" target="_blank" title="Download our app from the Google Play now">
+                  <img :draggable="false" :src="googleStoreImg" width="150" height="43" class="object-contain w-[111px] md:w-[120px] lg:w-[150px] h-auto hover:shadow-md active:opacity-75" alt="download Naxab on Google Play"/>
                 </a>
               </div>
           </div>
@@ -166,9 +160,7 @@ import texts from '@/fixtures/texts.js';
 import FormInput from '../Generic/FormInput.vue';
 import { required, minLength } from '@vuelidate/validators';
 import logoImg from '@/assets/imgs/logo2.png';
-import twitterImg from '@/assets/imgs/twitter.svg';
 import facebookImg from '@/assets/imgs/fb.svg';
-import snapchatImg from '@/assets/imgs/snapchat.svg';
 import instagramImg from '@/assets/imgs/insta.svg';
 import googleStoreImg from '@/assets/imgs/store_dark.svg';
 import appleStoreImg from '@/assets/imgs/app_store_dark.svg';
@@ -185,9 +177,7 @@ export default {
   data(){
     return {
       logoImg,
-      twitterImg,
       facebookImg,
-      snapchatImg,
       instagramImg,
       googleStoreImg,
       appleStoreImg,

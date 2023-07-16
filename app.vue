@@ -4,6 +4,8 @@
     <transition name="fade-loader" mode="out-in">
       <Preloader v-if="isAppStarting" />
     </transition>
+    <!-- floating whatsapp app -->
+    <WhatsAppBtn />
     <!-- main app -->
     <NuxtLayout>
       <NuxtPage />
@@ -11,7 +13,7 @@
   </div>
 </template>
 <script >
-import { Preloader } from "@/components";
+import { Preloader, WhatsAppBtn } from "@/components";
 import { useLocalStorage,  lowerString } from "./helpers";
 import { useGlobalStore } from "@/store/Modules/global";
 import { i18nConfig } from "@/helpers/i18nConfig";
@@ -38,7 +40,7 @@ export default {
       t
     }
   },
-  components: { Preloader },
+  components: { Preloader, WhatsAppBtn },
   methods: {
     changeDirectionLayout(name, lang) {
         const body = document.querySelector("body");

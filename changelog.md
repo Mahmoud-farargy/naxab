@@ -27,3 +27,10 @@
 - removed language flags from the header
 # Changes in [1.0.5] (2023-07-9)
 - sent the current used language with the "contact us" request
+# Changes in [1.0.6] (2023-07-17)
+- Removed Snapchat and Twitter social media links
+- Changed the phone's placeholder in the Contact us form
+- Added the Whatsapp floating button
+- Separated the Google and Apple store links in the Seller's tab from the Customer's tab
+- Fixed the language button that used to disappear on mobile
+- Tried to fix the disappearing menu button on mobile
