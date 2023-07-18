@@ -13,8 +13,8 @@ const texts = {
   sellers: {  // ------ الجزء الخاص بالمتاجر ------
     // لينكات البرنامج علي جوجل ستور وابل ستور
     app_links: {
-      google_store: "https://naxab.app.link/playStore",
-      apple_store: "https://naxab.app.link/appStore"
+      google_store: "https://play.google.com/store/apps/details?id=com.eaststar.naxab.store",
+      apple_store: "https://apps.apple.com/us/app/%D9%86%D9%83%D8%B3%D8%A8-%D8%AA%D8%AC%D8%A7%D8%B1/id6450875684"
     },
     // navbar menuهنا حط اسماء وروابط اللينكات اللي بتظهر فوق في ال 
     navLinks: {
@@ -256,8 +256,8 @@ const texts = {
   links: {
     // حط لينكات السوشيال ميديا تحت
     socials: {
-      instagram: "#",
-      facebook: "#",
+      instagram: "https://instagram.com/naxab2023?igshid=ZGUzMzM3NWJiOQ==",
+      facebook: "https://www.facebook.com/profile.php?id=100094897624440&mibextid=ZbWKwL",
       twitter: "#",
       snapchat: "#"
     },
