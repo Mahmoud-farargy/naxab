@@ -2,7 +2,7 @@
   <section class="call__to__action section__box">
     <div :class="`inner-container grid grid-cols-1 ${!global?.isRTL ? 'gap-x-5 md:gap-x-14':''} py-1 sm:py-2 place-items-center sm:place-items-start gap-y-10 sm:text-inherit sm:grid-cols-2`">       
         <!-- statement -->
-        <div class="text-[21px] sm:[25px] md:text-[27px] text-center md:text-right lg:text-[29px]" data-aos-duration="1200" data-aos-delay="250" data-aos-once="true" data-aos="fade-left">
+        <div class="text-[21px] sm:[25px] md:text-[27px] text-center md:text-right lg:text-[29px]" data-aos-duration="1200" data-aos-delay="250" data-aos-once="true" data-aos="fade-up">
             <p class="text-[#000000] font-normal mb-2">{{ $t('call_to_action_text') }}</p>
             <strong @click="router.replace({query: { ...route.query}, hash: '' })" class="font-bold cursor-pointer text-primaryLighter">{{ $t('call_to_action_highlight') }}</strong>
         </div>

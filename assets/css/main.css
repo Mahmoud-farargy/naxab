@@ -383,9 +383,3 @@ html.rtl .features__slides .facts-list li::before{
     transform: scale(1.01);
   }
 }
-/* 460 pixels and below */
-@media only screen and (max-width: 460px) {
-  html {
-    overflow-x: hidden;
-  }
-}
