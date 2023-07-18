@@ -262,10 +262,6 @@ html.rtl .nav-item-button{
   border-right-width: 2px;
   border-left-width: 0;
 }
-html.rtl .features__slides .facts-list li::before{
-  margin-right: -1em ;
-  margin-left: 0 !important;
-}
 /* tooltip */
 .custom__tooltip {
   position: relative;

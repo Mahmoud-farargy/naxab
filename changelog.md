@@ -34,3 +34,4 @@
 - Separated the Google and Apple store links in the Seller's tab from the Customer's tab
 - Fixed the language button that used to disappear on mobile
 - Tried to fix the disappearing menu button on mobile
+- Fixed some styling bugs

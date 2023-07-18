@@ -4,7 +4,7 @@
       <button
         ref="leftArrow"
         id="go-right"
-        class="prev-nav-button absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] right-[-8%] sm:right-[-2%] md:right-[2%] lg:right-[5%] xl:right-[10%]"
+        class="prev-nav-button absolute ease-linear duration-150 p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] right-[-8%] sm:right-[-2%] md:right-[2%] lg:right-[5%] xl:right-[10%]"
         @click="goLeft"
         aria-label="Go right"
         aria-labelledby="Go right"
@@ -57,7 +57,7 @@
       <button ref="rightArrow"        
         aria-label="Go left"
         aria-labelledby="Go left"
-        id="go-left" class="absolute p-2 cursor-pointer top-[50%] translate-y-[-50%] z-[6] left-[-8%] sm:left-[-2%] md:left-[2%] lg:left-[5%] xl:left-[10%]" @click="goRight">
+        id="go-left" class="absolute p-2 cursor-pointer ease-linear duration-150 top-[50%] translate-y-[-50%] z-[6] left-[-8%] sm:left-[-2%] md:left-[2%] lg:left-[5%] xl:left-[10%]" @click="goRight">
         <img
           class="w-[22px] md:w-[27px] lg:w-[31px] opacity-80 hover:opacity-100 ease-linear duration-150"
           src="../../assets/imgs/left-arrow.svg"
@@ -76,13 +76,10 @@ const props = defineProps({
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Navigation, Pagination, A11y, Virtual } from "swiper";
 import "swiper/css";
-import { useGlobalStore } from "~/store/Modules/global";
 
 const img = "/assets/imgs/placeholder.jpg";
 const leftArrow = ref(null);
 const rightArrow = ref(null);
-const global = useGlobalStore();
-const isRTL = global?.isRTL;
 // Functions
 const handleArrows = () => {
     const to_right = document.getElementById("go-right");
@@ -114,22 +111,12 @@ const onActiveIndexChange = event => {
   const { isEnd, isBeginning } = event;
 
   if (isBeginning) {
-    if (isRTL) {
       rightArrow.value.classList.add("disabled");
       leftArrow.value.classList.remove("disabled");
-    } else {     
-      leftArrow.value.classList.add("disabled");
-      rightArrow.value.classList.remove("disabled");
-    }
     return;
   } else if (isEnd) {
-    if (isRTL) {
       leftArrow.value.classList.add("disabled");
       rightArrow.value.classList.remove("disabled");
-    } else {     
-      rightArrow.value.classList.add("disabled");
-      leftArrow.value.classList.remove("disabled");
-    }
     return;
   }   
   rightArrow.value.classList.remove("disabled");
@@ -137,11 +124,7 @@ const onActiveIndexChange = event => {
 };
 
 const onSwiperInit = event => {
-  if (isRTL) {
-    rightArrow.value.classList.add("disabled");
-  } else {
-    leftArrow.value.classList.add("disabled");
-  }
+  rightArrow.value.classList.add("disabled");
 };
 // to replace img when it has an error
 const handleImgError = e => {

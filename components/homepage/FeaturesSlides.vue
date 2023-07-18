@@ -9,9 +9,11 @@
       <!-- slides -->
       <Slider v-if="global.currentTab === 'customers'" :featuresList="texts.customers.features_slides"/>
       <div v-else-if="global.currentTab === 'sellers'" class="inner-container">
-        <ul class="list-none grid grid-cols-1 md:grid-cols-2 gap-y-1 md:gap-y-0 gap-x-12 facts-list mt-2 sm:mt-8 md:mt-12">
-          <li v-for="(factItem, index) in texts.sellers.facts_list" class="text-white font-normal text-[16px] md:text-[18px] lg:text-[19px]" :key="index" >
-            {{ $t(`${factItem}`) }}
+        <ul class="list-none grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-2 gap-x-12 facts-list mt-2 sm:mt-8 md:mt-12">
+         
+          <li v-for="(factItem, index) in texts.sellers.facts_list" class="text-white flex flex-nowrap items-start gap-1 sm:gap-2 font-normal text-[16px] md:text-[18px] lg:text-[19px]" :key="index" >
+             <span class="bullet-point flex justify-center items-center">•</span>
+             <p>{{ $t(`${factItem}`) }}</p>
           </li>
         </ul>
         <div class="flex flex-col max-w-[620px] m-auto items-center w-full text-[16px] sm:text-[18px] md:text-[19px] mt-8 md:mt-7 lg:mt-10">
@@ -57,14 +59,11 @@ export default {
     background:  transparent linear-gradient(180deg, #92278F 0%, #5C2D91 100%) 0% 0% no-repeat padding-box;
     .facts-list{
       li{
-        &::before{
-          content: "•";
+        .bullet-point{
           color: var(--secondary-color); 
           font-weight: bold;
-          display: inline-block;
           width: 27px; 
           height: 27px;
-          margin-left: -1em;
           font-size: 2.2rem;
           @media only screen and (max-width: 819px){
             margin-right: 0;
